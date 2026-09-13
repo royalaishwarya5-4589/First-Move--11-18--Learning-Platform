@@ -23,10 +23,10 @@ export function Footer() {
         >
           <div>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.75rem' }}>
-              LearnTech Platform
+              First Move(11~18)
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.5 }}>
-              Structured, level-based technology learning paths from absolute beginner to industry mastery.
+              Structured, level-based technology learning paths from foundational exploration to industry mastery.
             </p>
           </div>
 
@@ -84,7 +84,7 @@ export function Footer() {
             color: 'var(--text-muted)'
           }}
         >
-          <p>© {new Date().getFullYear()} LearnTech Educational Platform. Built incrementally with Next.js App Router.</p>
+          <p>© {new Date().getFullYear()} First Move(11~18) Educational Platform. Built with Next.js App Router.</p>
           <p>Readability & Accessibility First</p>
         </div>
       </div>

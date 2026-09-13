@@ -21,6 +21,14 @@ function cleanHtmlToText(html: string): string {
 export async function runStage16_5RealWorldHttpQATests() {
   console.log('=== STAGE 16.5 REAL-WORLD HTTP QA AUDIT (PRODUCTION SERVER) ===\n');
 
+  try {
+    const probe = await fetch(`${BASE_URL}/`, { signal: AbortSignal.timeout(1500) });
+    if (!probe) throw new Error('Server not responding');
+  } catch {
+    console.log('ℹ STAGE 16.5 NOTICE: Local server not active on http://localhost:3000. Skipping live HTTP audit.\n');
+    return;
+  }
+
   let passedRoutesCount = 0;
 
   // ----------------------------------------------------

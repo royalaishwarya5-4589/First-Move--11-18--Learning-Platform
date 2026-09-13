@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { ExerciseSubmission } from '@/types/user';
 import { Card } from '@/components/Card';
 import { Badge } from '@/components/Badge';
+import { EmptyState } from '@/components/EmptyState';
 
 interface SubmissionsListProps {
   submissions: ExerciseSubmission[];
@@ -26,14 +27,18 @@ export function SubmissionsList({ submissions }: SubmissionsListProps) {
 
   if (!submissions || submissions.length === 0) {
     return (
-      <Card hoverable={false}>
-        <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+      <div style={{ marginBottom: '2rem' }}>
+        <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '0.85rem' }}>
           Recent Exercise Submissions
         </h3>
-        <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>
-          No exercise submissions recorded yet. Open a lesson exercise and submit your code to see history here!
-        </p>
-      </Card>
+        <EmptyState
+          icon="💻"
+          title="No Code Submissions Yet"
+          description="Open an active course workbench, solve practical exercises, and validate test assertions to review history here."
+          actionLabel="Go to Python Workbench →"
+          actionHref="/paths/python"
+        />
+      </div>
     );
   }
 

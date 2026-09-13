@@ -30,7 +30,7 @@ export function AchievementsList({ achievements }: AchievementsListProps) {
           <div
             key={ach.id}
             style={{
-              backgroundColor: ach.isUnlocked ? 'rgba(59, 130, 246, 0.05)' : 'var(--bg-app)',
+              backgroundColor: ach.isUnlocked ? 'rgba(201, 162, 39, 0.08)' : 'var(--bg-app)',
               border: ach.isUnlocked ? '1px solid var(--accent-primary)' : '1px solid var(--border-color)',
               borderRadius: 'var(--radius-md)',
               padding: '1rem',

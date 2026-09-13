@@ -82,7 +82,7 @@ export async function runStage16LearnerQAContractTests() {
       );
     }
   }
-  console.assert(totalModulesCount === 50, `[QA FAIL] Total modules count across platform (${totalModulesCount}) does not match expected 50`);
+  console.assert(totalModulesCount === 52, `[QA FAIL] Total modules count across platform (${totalModulesCount}) does not match expected 52`);
   console.log(`✔ QA CHECK 1 PASS: All 15 course landing pages verified with ${totalModulesCount} total levels/modules.`);
 
   // ----------------------------------------------------
@@ -121,9 +121,9 @@ export async function runStage16LearnerQAContractTests() {
       }
     }
   }
-  console.assert(totalLessonsCount === 119, `[QA FAIL] Total lessons count (${totalLessonsCount}) does not match expected 119`);
-  console.assert(totalExercisesCount === 119, `[QA FAIL] Total exercises count (${totalExercisesCount}) does not match expected 119`);
-  console.log(`✔ QA CHECK 2 PASS: All 119 lesson routes and 119 exercises verified with zero copypasta or broken markdown.`);
+  console.assert(totalLessonsCount === 152, `[QA FAIL] Total lessons count (${totalLessonsCount}) does not match expected 152`);
+  console.assert(totalExercisesCount === 152, `[QA FAIL] Total exercises count (${totalExercisesCount}) does not match expected 152`);
+  console.log(`✔ QA CHECK 2 PASS: All ${totalLessonsCount} lesson routes and ${totalExercisesCount} exercises verified with zero copypasta or broken markdown.`);
 
   // ----------------------------------------------------
   // TEST 3 — PORTFOLIO PROJECTS ARCHITECTURE
@@ -145,8 +145,8 @@ export async function runStage16LearnerQAContractTests() {
       console.assert(!!proj.starterCode, `[QA FAIL] Project '${proj.slug}' missing starter code`);
     }
   }
-  console.assert(totalProjectsCount === 38, `[QA FAIL] Total projects count (${totalProjectsCount}) does not match expected 38`);
-  console.log(`✔ QA CHECK 3 PASS: All 38 portfolio projects verified with milestones, starter code, and route resolution.`);
+  console.assert(totalProjectsCount === 39, `[QA FAIL] Total projects count (${totalProjectsCount}) does not match expected 39`);
+  console.log(`✔ QA CHECK 3 PASS: All ${totalProjectsCount} portfolio projects verified with milestones, starter code, and route resolution.`);
 
   // ----------------------------------------------------
   // TEST 4 — ASSESSMENTS & SERVER SCORING ENGINE

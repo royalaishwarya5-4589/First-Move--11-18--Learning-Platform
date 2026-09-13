@@ -15,11 +15,11 @@ export async function generateMetadata({ params }: AssessmentPageProps) {
   const assessment = getAssessmentBySlug(assessmentSlug);
 
   if (!assessment) {
-    return { title: 'Assessment Not Found | LearnTech' };
+    return { title: 'Assessment Not Found | First Move(11~18)' };
   }
 
   return {
-    title: `${assessment.title} | LearnTech`,
+    title: `${assessment.title} | First Move(11~18)`,
     description: assessment.description,
   };
 }

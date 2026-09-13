@@ -37,12 +37,12 @@ export async function runStage17AManualQARunner() {
   } else {
     const homeHtml = await homeRes.text();
     const homeText = cleanHtmlToText(homeHtml);
-    if (!homeText.includes('LearnTech') && !homeText.includes('Learning Platform')) {
+    if (!homeText.includes('First Move') && !homeText.includes('LearnTech') && !homeText.includes('Learning Platform')) {
       bugsFound.push({
         bugNo: bugsFound.length + 1,
         page: '/',
         severity: 'MEDIUM',
-        expected: 'Homepage header renders LearnTech branding',
+        expected: 'Homepage header renders First Move branding',
         actual: 'Branding missing from rendered text',
         steps: 'Open http://localhost:3000/ and inspect DOM header'
       });

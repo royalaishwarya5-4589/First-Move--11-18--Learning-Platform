@@ -60,16 +60,29 @@ export async function signInWithEmail(formData: FormData) {
       };
     }
 
-    // The authentication session has now been created.
-    // Do not wait for profile/database operations here.
+    // Check if user has completed onboarding assessment
+    let targetPath = '/dashboard';
+    try {
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('has_completed_onboarding')
+        .eq('id', data.user.id)
+        .maybeSingle();
+
+      if (profile && profile.has_completed_onboarding === false) {
+        targetPath = '/assessment';
+      }
+    } catch {
+      targetPath = '/dashboard';
+    }
+
     revalidatePath('/', 'layout');
+    redirect(targetPath);
   } catch (err: unknown) {
     return {
       error: formatAuthError(err),
     };
   }
-
-  redirect('/dashboard');
 }
 
 /**
@@ -135,7 +148,7 @@ export async function signUpWithEmail(formData: FormData) {
      */
     if (data.session) {
       revalidatePath('/', 'layout');
-      redirect('/dashboard');
+      redirect('/assessment');
     }
 
     /*

@@ -137,14 +137,15 @@ export function LessonWorkbench({
         setActiveTab={setActiveTab}
       />
 
-      {/* Phase 4 Completion Banner */}
+      {/* Phase 4 Completion Banner with Smooth Slide-down Transition */}
       {isFullyCompleted && (
         <div
+          className="animate-slide-down"
           style={{
             backgroundColor: 'rgba(16, 185, 129, 0.15)',
             borderBottom: '1px solid #10b981',
             color: '#10b981',
-            padding: '0.65rem 1.25rem',
+            padding: '0.75rem 1.25rem',
             fontSize: '0.875rem',
             fontWeight: 600,
             display: 'flex',
@@ -152,6 +153,7 @@ export function LessonWorkbench({
             justifyContent: 'space-between',
             flex: '0 0 auto',
             gap: '1rem',
+            boxShadow: '0 2px 10px rgba(16, 185, 129, 0.1)',
           }}
         >
           <div>
@@ -163,24 +165,31 @@ export function LessonWorkbench({
           <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
             <Link
               href={`/paths/${path.slug}`}
-              style={{ color: 'var(--text-main)', fontSize: '0.8rem', textDecoration: 'underline' }}
+              className="btn-interactive"
+              style={{ color: 'var(--text-main)', fontSize: '0.825rem', textDecoration: 'underline' }}
             >
               Back to {path.title}
             </Link>
             {nextLesson && (
               <Link
                 href={`/paths/${path.slug}/lessons/${nextLesson.slug}`}
+                className="btn-interactive"
                 style={{
                   backgroundColor: '#10b981',
                   color: '#ffffff',
-                  padding: '0.35rem 0.75rem',
-                  borderRadius: 'var(--radius-sm)',
+                  padding: '0.45rem 0.95rem',
+                  borderRadius: 'var(--radius-md)',
                   textDecoration: 'none',
-                  fontWeight: 700,
-                  fontSize: '0.8rem',
+                  fontWeight: 750,
+                  fontSize: '0.85rem',
+                  boxShadow: '0 2px 8px rgba(16, 185, 129, 0.3)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
                 }}
               >
-                Continue to Next Lesson →
+                <span>Continue to Next Lesson</span>
+                <span>→</span>
               </Link>
             )}
           </div>

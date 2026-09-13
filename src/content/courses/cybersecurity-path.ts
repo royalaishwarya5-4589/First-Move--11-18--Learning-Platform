@@ -15,7 +15,7 @@ export const cybersecurityPath: Path = {
   courseType: 'hybrid',
   difficulty: 'intermediate',
   estimatedHours: 45,
-  totalLessons: 7,
+  totalLessons: 6,
   totalProjects: 2,
   certificationRequirement: COURSE_CERTIFICATION_POLICIES['web-security'],
   projects: [

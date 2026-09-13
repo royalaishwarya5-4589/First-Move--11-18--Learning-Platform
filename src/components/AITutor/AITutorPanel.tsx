@@ -141,15 +141,15 @@ export function AITutorPanel() {
       style={{
         position: 'fixed',
         right: '24px',
-        bottom: '88px',
+        bottom: '112px',
         width: '420px',
         maxWidth: 'calc(100vw - 32px)',
         height: '620px',
         maxHeight: 'calc(100vh - 120px)',
-        backgroundColor: 'var(--bg-surface, #0f172a)',
-        border: '1px solid var(--border-color, #334155)',
-        borderRadius: 'var(--radius-lg, 12px)',
-        boxShadow: 'var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.5))',
+        backgroundColor: 'var(--bg-surface, #FFFFFF)',
+        border: '1.5px solid var(--accent-gold, #C9A227)',
+        borderRadius: 'var(--radius-lg, 16px)',
+        boxShadow: '0 16px 36px -4px rgba(28, 28, 28, 0.15), 0 6px 18px -2px rgba(201, 162, 39, 0.18)',
         zIndex: 1001,
         display: 'flex',
         flexDirection: 'column',
@@ -161,8 +161,8 @@ export function AITutorPanel() {
       <div
         style={{
           padding: '0.85rem 1rem',
-          backgroundColor: 'var(--bg-surface-elevated, #1e293b)',
-          borderBottom: '1px solid var(--border-color, #334155)',
+          backgroundColor: 'var(--bg-muted, #F5F3EB)',
+          borderBottom: '1px solid var(--border-color, #EDE7D5)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -171,10 +171,10 @@ export function AITutorPanel() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
           <RobotMascot state={robotState} size={36} />
           <div>
-            <div style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text-main, #f8fafc)' }}>
-              LearnTech AI Tutor & Debugger
+            <div style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text-main, #1C1C1C)' }}>
+              First Move(11~18) AI Tutor & Debugger
             </div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted, #94a3b8)', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted, #6B6B6B)', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
               <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#10b981' }} />
               {activeContext.title || 'Interactive Learning Assistant'}
             </div>
@@ -189,7 +189,7 @@ export function AITutorPanel() {
             style={{
               background: 'none',
               border: 'none',
-              color: 'var(--text-muted, #94a3b8)',
+              color: 'var(--text-muted, #6B6B6B)',
               cursor: 'pointer',
               padding: '0.3rem',
               borderRadius: '4px',
@@ -241,7 +241,7 @@ export function AITutorPanel() {
                 fontSize: '0.85rem',
               }}
             >
-              <option value="auto">✨ Auto / LearnTech Engine (Free Built-in)</option>
+              <option value="auto">✨ Auto / First Move Engine (Free Built-in)</option>
               <option value="gemini">Google Gemini 1.5 Flash</option>
               <option value="openai">OpenAI GPT-4o mini</option>
               <option value="groq">Groq Llama 3</option>

@@ -16,42 +16,48 @@ export default function LandingPage() {
         style={{
           backgroundColor: 'var(--bg-surface)',
           borderBottom: '1px solid var(--border-color)',
-          padding: '5rem 0 4rem 0'
+          padding: 'clamp(3.5rem, 6vw, 6rem) 0 clamp(2.5rem, 5vw, 4.5rem) 0'
         }}
       >
         <div className="site-container">
-          <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-            <Badge variant="active" size="md">
-              Structured Technology Learning Ecosystem
+          <div style={{ maxWidth: '1020px', margin: '0 auto', textAlign: 'center' }}>
+            <Badge variant="gold" size="md">
+              ✨ Premium Engineering &amp; AI Learning Ecosystem
             </Badge>
             <h1
               style={{
-                fontSize: '2.75rem',
-                fontWeight: 800,
-                lineHeight: 1.2,
+                fontSize: 'clamp(2.2rem, 4vw + 0.5rem, 3.4rem)',
+                fontWeight: 850,
+                lineHeight: 1.18,
                 marginTop: '1.25rem',
                 marginBottom: '1.25rem',
-                color: 'var(--text-main)'
+                color: 'var(--text-main)',
+                letterSpacing: '-0.025em',
               }}
             >
-              Master Software Engineering from <span style={{ color: 'var(--accent-primary)' }}>Absolute Beginner</span> to <span style={{ color: 'var(--accent-purple)' }}>Industry Mastery</span>
+              Master Software Engineering from <span style={{ color: 'var(--accent-beige-deep)' }}>Absolute Beginner</span> to <span style={{ color: 'var(--text-main)', borderBottom: '2.5px solid var(--accent-beige)' }}>Industry Mastery</span>
             </h1>
             <p
               style={{
-                fontSize: '1.2rem',
+                fontSize: 'clamp(1.05rem, 0.4vw + 0.95rem, 1.25rem)',
                 color: 'var(--text-muted)',
-                lineHeight: 1.6,
-                marginBottom: '2rem'
+                lineHeight: 1.65,
+                marginBottom: '2.25rem',
+                maxWidth: '820px',
+                margin: '0 auto 2.25rem auto',
               }}
             >
-              Follow structured, level-based roadmaps across Programming, Computer Science, Web Development, AI, and Security with active hands-on coding practice.
+              Unsure which domain suits you best? Take the <strong>Career Compass</strong> discovery, or follow structured, level-based roadmaps across Programming, Computer Science, Web Development, and AI.
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Button href="/paths/python" size="lg" variant="primary">
-                🐍 Start Python Path
+              <Button href="/assessment" size="lg" variant="primary">
+                🧭 Discover Your Domain (Career Compass)
+              </Button>
+              <Button href="/paths/python" size="lg" variant="secondary">
+                🐍 Python Path
               </Button>
               <Button href="/paths" size="lg" variant="outline">
-                Explore Path Catalog
+                All Curricula
               </Button>
             </div>
           </div>
@@ -71,8 +77,8 @@ export default function LandingPage() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '1.25rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(190px, 16vw, 240px), 1fr))',
+            gap: 'clamp(1rem, 2vw, 1.5rem)'
           }}
         >
           {[
@@ -82,13 +88,13 @@ export default function LandingPage() {
             { level: 'Level 4', title: 'Projects', desc: 'Build full real-world applications with portfolio value.', icon: '🛠️' },
             { level: 'Level 5', title: 'Mastery', desc: 'Top algorithmic patterns & technical interview prep.', icon: '🏆' }
           ].map((item, idx) => (
-            <Card key={idx} hoverable={false} style={{ textAlign: 'center', position: 'relative' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{item.icon}</div>
+            <Card key={idx} hoverable={false} style={{ textAlign: 'center', position: 'relative', padding: '1.5rem 1.25rem' }}>
+              <div style={{ fontSize: '2.25rem', marginBottom: '0.65rem' }}>{item.icon}</div>
               <Badge variant="level" size="sm">
                 {item.level}
               </Badge>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: '0.5rem 0' }}>{item.title}</h3>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{item.desc}</p>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 750, margin: '0.65rem 0' }}>{item.title}</h3>
+              <p style={{ fontSize: '0.925rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>{item.desc}</p>
             </Card>
           ))}
         </div>
@@ -126,28 +132,28 @@ export default function LandingPage() {
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-                gap: '1rem',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(180px, 18vw, 240px), 1fr))',
+                gap: '1.25rem',
                 marginTop: '1.5rem',
                 paddingTop: '1.5rem',
                 borderTop: '1px solid var(--border-color)'
               }}
             >
               <div>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block' }}>Estimated Hours</span>
-                <strong style={{ fontSize: '1.1rem' }}>45 Hours</strong>
+                <span style={{ fontSize: '0.875rem', color: 'var(--text-muted)', display: 'block' }}>Estimated Hours</span>
+                <strong style={{ fontSize: '1.2rem' }}>45 Hours</strong>
               </div>
               <div>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block' }}>Total Lessons</span>
-                <strong style={{ fontSize: '1.1rem' }}>32 Structured Lessons</strong>
+                <span style={{ fontSize: '0.875rem', color: 'var(--text-muted)', display: 'block' }}>Total Lessons</span>
+                <strong style={{ fontSize: '1.2rem' }}>32 Structured Lessons</strong>
               </div>
               <div>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block' }}>Hands-On Projects</span>
-                <strong style={{ fontSize: '1.1rem' }}>4 Portfolio Projects</strong>
+                <span style={{ fontSize: '0.875rem', color: 'var(--text-muted)', display: 'block' }}>Hands-On Projects</span>
+                <strong style={{ fontSize: '1.2rem' }}>4 Portfolio Projects</strong>
               </div>
               <div>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block' }}>Execution Runtime</span>
-                <strong style={{ fontSize: '1.1rem' }}>WebAssembly (Pyodide)</strong>
+                <span style={{ fontSize: '0.875rem', color: 'var(--text-muted)', display: 'block' }}>Execution Runtime</span>
+                <strong style={{ fontSize: '1.2rem' }}>WebAssembly (Pyodide)</strong>
               </div>
             </div>
           </Card>
@@ -199,7 +205,7 @@ export default function LandingPage() {
         <div className="site-container">
           <div className="section-header center">
             <span className="section-tag">Learning Experience</span>
-            <h2 className="section-title">How You Learn on LearnTech</h2>
+            <h2 className="section-title">How You Learn on First Move(11~18)</h2>
             <p className="section-subtitle">
               Combining clear theory with active coding execution and automated validation.
             </p>
@@ -212,74 +218,77 @@ export default function LandingPage() {
               gap: '2rem'
             }}
           >
-            <div style={{ textAlign: 'center', padding: '1rem' }}>
+            <div style={{ textAlign: 'center', padding: '1.75rem 1.5rem', backgroundColor: 'var(--bg-app)', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
               <div
                 style={{
-                  width: '3rem',
-                  height: '3rem',
+                  width: '3.2rem',
+                  height: '3.2rem',
                   borderRadius: '50%',
-                  backgroundColor: 'var(--accent-primary)',
-                  color: '#FFF',
+                  background: 'var(--accent-primary)',
+                  color: 'var(--text-inverse)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontSize: '1.25rem',
                   fontWeight: 800,
-                  margin: '0 auto 1rem auto'
+                  margin: '0 auto 1rem auto',
+                  boxShadow: '0 4px 14px rgba(24, 26, 29, 0.16)',
                 }}
               >
                 1
               </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem' }}>Visual Roadmaps</h3>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 750, marginBottom: '0.5rem', color: 'var(--text-main)' }}>Visual Roadmaps</h3>
+              <p style={{ fontSize: '0.925rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
                 Track your exact position, completed lessons, prerequisites, and milestone gates visually.
               </p>
             </div>
 
-            <div style={{ textAlign: 'center', padding: '1rem' }}>
+            <div style={{ textAlign: 'center', padding: '1.75rem 1.5rem', backgroundColor: 'var(--bg-app)', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
               <div
                 style={{
-                  width: '3rem',
-                  height: '3rem',
+                  width: '3.2rem',
+                  height: '3.2rem',
                   borderRadius: '50%',
-                  backgroundColor: 'var(--accent-secondary)',
-                  color: '#FFF',
+                  background: 'var(--accent-primary)',
+                  color: 'var(--text-inverse)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontSize: '1.25rem',
                   fontWeight: 800,
-                  margin: '0 auto 1rem auto'
+                  margin: '0 auto 1rem auto',
+                  boxShadow: '0 4px 14px rgba(24, 26, 29, 0.16)',
                 }}
               >
                 2
               </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem' }}>Interactive Workbench</h3>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 750, marginBottom: '0.5rem', color: 'var(--text-main)' }}>Interactive Workbench</h3>
+              <p style={{ fontSize: '0.925rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
                 Read bite-sized concepts and immediately solve exercises in the embedded Monaco editor.
               </p>
             </div>
 
-            <div style={{ textAlign: 'center', padding: '1rem' }}>
+            <div style={{ textAlign: 'center', padding: '1.75rem 1.5rem', backgroundColor: 'var(--bg-app)', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
               <div
                 style={{
-                  width: '3rem',
-                  height: '3rem',
+                  width: '3.2rem',
+                  height: '3.2rem',
                   borderRadius: '50%',
-                  backgroundColor: 'var(--accent-purple)',
-                  color: '#FFF',
+                  background: 'var(--accent-primary)',
+                  color: 'var(--text-inverse)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontSize: '1.25rem',
                   fontWeight: 800,
-                  margin: '0 auto 1rem auto'
+                  margin: '0 auto 1rem auto',
+                  boxShadow: '0 4px 14px rgba(24, 26, 29, 0.16)',
                 }}
               >
                 3
               </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem' }}>Automated Validation</h3>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 750, marginBottom: '0.5rem', color: 'var(--text-main)' }}>Automated Validation</h3>
+              <p style={{ fontSize: '0.925rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
                 Run test suites directly in your browser with instant stdout feedback and assertion checks.
               </p>
             </div>
@@ -363,7 +372,7 @@ Total Cost: 59.97
           <span className="section-tag">Copyright-Safe Curation</span>
           <h2 className="section-title">Direct Links to Official Technical Standards</h2>
           <p className="section-subtitle">
-            Rather than copying third-party content, LearnTech references official documentation, PEPs, MDN standards, and RFC specifications.
+            Rather than copying third-party content, First Move(11~18) references official documentation, PEPs, MDN standards, and RFC specifications.
           </p>
         </div>
 
@@ -389,21 +398,33 @@ Total Cost: 59.97
       <section className="site-container">
         <Card
           style={{
-            backgroundColor: 'var(--bg-surface)',
-            border: '2px solid var(--accent-primary)',
+            backgroundColor: 'var(--bg-surface-alt)',
+            border: '1.5px solid var(--border-color)',
             padding: '3.5rem 2rem',
-            textAlign: 'center'
+            textAlign: 'center',
+            borderRadius: '24px',
+            boxShadow: 'var(--shadow-md)',
           }}
         >
-          <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '1rem' }}>
-            Ready to Begin Your Python Journey?
+          <div style={{ display: 'inline-flex', marginBottom: '1rem' }}>
+            <Badge variant="gold" size="md">
+              🧭 Not sure which path to choose?
+            </Badge>
+          </div>
+          <h2 style={{ fontSize: '2.25rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '1rem' }}>
+            Find Your Ideal Tech Career Path
           </h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 2rem auto' }}>
-            Start with Level 1 Beginner fundamentals and progress step-by-step to advanced Pythonic software engineering.
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 2rem auto', lineHeight: 1.6 }}>
+            Our adaptive Career Compass matches your cognitive style, interests, and engineering inclinations to the optimal technology domain.
           </p>
-          <Button href="/paths/python" size="lg" variant="primary">
-            Start Learning Python Now →
-          </Button>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Button href="/assessment" size="lg" variant="primary">
+              Take Career Compass Discovery →
+            </Button>
+            <Button href="/paths" size="lg" variant="secondary">
+              Explore All Courses
+            </Button>
+          </div>
         </Card>
       </section>
     </div>

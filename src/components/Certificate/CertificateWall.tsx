@@ -25,7 +25,7 @@ export function CertificateWall({ certificates }: CertificateWallProps) {
           🎓 Certificate Wall ({certificates.length})
         </h2>
         <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-          Verified LearnTech Certifications
+          Verified First Move(11~18) Certifications
         </span>
       </div>
 

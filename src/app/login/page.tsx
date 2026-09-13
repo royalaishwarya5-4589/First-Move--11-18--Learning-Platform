@@ -61,9 +61,9 @@ export default function LoginPage() {
       }
 
       // Login succeeded.
-      // Immediately trigger hard navigation to dashboard so browser leaves /login instantly.
       isNavigatingRef.current = true;
-      window.location.assign('/dashboard');
+      router.push('/dashboard');
+      router.refresh();
 
     } catch (err) {
       console.error('Login error:', err);
@@ -216,13 +216,13 @@ export default function LoginPage() {
             variant="primary"
             size="md"
             type="submit"
-            disabled={isSubmitting}
+            isLoading={isSubmitting}
             style={{
               marginTop: '0.5rem',
               width: '100%',
             }}
           >
-            {isSubmitting ? 'Signing In...' : 'Sign In'}
+            Sign In
           </Button>
         </form>
 

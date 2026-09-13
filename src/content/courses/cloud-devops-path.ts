@@ -15,7 +15,7 @@ export const cloudDevopsPath: Path = {
   courseType: 'hybrid',
   difficulty: 'advanced',
   estimatedHours: 60,
-  totalLessons: 7,
+  totalLessons: 6,
   totalProjects: 2,
   certificationRequirement: COURSE_CERTIFICATION_POLICIES['cloud-devops'],
   projects: [

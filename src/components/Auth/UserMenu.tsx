@@ -20,31 +20,49 @@ export function UserMenu() {
 
   if (!user) {
     return (
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
         <Link
           href="/login"
           style={{
-            color: 'var(--text-main)',
+            color: 'var(--text-main, #1E293B)',
             fontWeight: 600,
-            fontSize: '0.9rem',
+            fontSize: '0.92rem',
             textDecoration: 'none',
+            padding: '0.4rem 0.5rem',
+            transition: 'color 150ms ease',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = '#2563EB';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = 'var(--text-main, #1E293B)';
           }}
         >
-          Sign In
+          Log In
         </Link>
         <Link
           href="/signup"
           style={{
-            backgroundColor: 'var(--accent-primary)',
-            color: '#FFF',
-            padding: '0.4rem 0.85rem',
-            borderRadius: 'var(--radius-sm)',
-            fontWeight: 600,
+            backgroundColor: '#1E40AF',
+            color: '#FFFFFF',
+            padding: '0.48rem 1.15rem',
+            borderRadius: '8px',
+            fontWeight: 700,
             fontSize: '0.9rem',
             textDecoration: 'none',
+            boxShadow: '0 2px 6px rgba(30, 64, 175, 0.3)',
+            transition: 'background-color 150ms ease, transform 150ms ease',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = '#1D4ED8';
+            e.currentTarget.style.transform = 'translateY(-1px)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = '#1E40AF';
+            e.currentTarget.style.transform = 'translateY(0)';
           }}
         >
-          Sign Up
+          Enroll now
         </Link>
       </div>
     );

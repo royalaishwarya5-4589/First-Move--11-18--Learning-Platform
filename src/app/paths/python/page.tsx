@@ -1,11 +1,11 @@
 import React from 'react';
 import { getPathBySlug } from '@/content';
 import { Path } from '@/types/content';
-import { PythonPathClient } from '@/components/Path/PythonPathClient';
+import { CoursePathClient } from '@/components/Path/CoursePathClient';
 
 export const metadata = {
-  title: 'Python Developer Mastery Path | LearnTech',
-  description: 'Structured Python roadmap from beginner fundamentals to advanced object-oriented design, portfolio projects, and technical interview mastery.',
+  title: 'Python Developer Mastery Path | First Move(11~18)',
+  description: 'Structured Python roadmap from foundational fundamentals to advanced object-oriented design, portfolio projects, and technical interview mastery.',
 };
 
 export default function PythonPathPage() {
@@ -15,6 +15,7 @@ export default function PythonPathPage() {
     return <div className="site-container">Path not found.</div>;
   }
 
-  return <PythonPathClient path={path} />;
+  return <CoursePathClient path={path} />;
 }
+
 

@@ -30,7 +30,7 @@ export function ConsolePanel({ logs, validationResult, onClearLogs, isRunning }:
       case 'stderr':
         return '#f59e0b';
       case 'system':
-        return '#3b82f6';
+        return '#C9A227';
       case 'error':
         return '#ef4444';
       case 'success':

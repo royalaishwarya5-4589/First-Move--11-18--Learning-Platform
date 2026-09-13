@@ -68,7 +68,7 @@ export default function SignupPage() {
           Create Account
         </h1>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-          Join LearnTech to track your progress and sync achievements.
+          Join First Move(11~18) to track your progress and sync achievements.
         </p>
 
         {error && (
@@ -181,8 +181,8 @@ export default function SignupPage() {
             />
           </div>
 
-          <Button variant="primary" size="md" type="submit" disabled={isSubmitting} style={{ marginTop: '0.5rem', width: '100%' }}>
-            {isSubmitting ? 'Creating Account...' : 'Create Account'}
+          <Button variant="primary" size="md" type="submit" isLoading={isSubmitting} style={{ marginTop: '0.5rem', width: '100%' }}>
+            Create Account
           </Button>
         </form>
 

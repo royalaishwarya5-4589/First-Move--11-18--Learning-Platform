@@ -48,8 +48,8 @@ export function CertificatePreviewSection({
                 width: '56px',
                 height: '56px',
                 borderRadius: '12px',
-                backgroundColor: 'rgba(37, 99, 235, 0.1)',
-                border: '1px solid rgba(37, 99, 235, 0.2)',
+                backgroundColor: 'rgba(201, 162, 39, 0.1)',
+                border: '1px solid rgba(201, 162, 39, 0.25)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -65,7 +65,7 @@ export function CertificatePreviewSection({
                 {certificateTitle}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: 0, lineHeight: 1.5 }}>
-                Complete this learning path to earn your LearnTech certificate.
+                Complete this learning path to earn your First Move(11~18) certificate.
               </p>
             </div>
           </div>

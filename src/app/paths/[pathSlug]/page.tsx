@@ -14,14 +14,12 @@ export async function generateMetadata({ params }: PathPageProps) {
   const { pathSlug } = await params;
   const path = getPathBySlug(pathSlug);
 
-  if (!path) {
-    return {
-      title: 'Course Not Found | LearnTech',
-    };
+  if (!path || !('modules' in path)) {
+    notFound();
   }
 
   return {
-    title: `${path.title} | LearnTech Educational Platform`,
+    title: `${path.title} | First Move(11~18)`,
     description: path.description,
   };
 }

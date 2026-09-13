@@ -245,7 +245,7 @@ export async function GET(
     color: rgb(0.06, 0.09, 0.16),
   });
 
-  const boardText = 'LearnTech Board';
+  const boardText = 'First Move Board';
   page.drawText(boardText, {
     x: sigLineX + 40,
     y: 102,
@@ -254,7 +254,7 @@ export async function GET(
     color: rgb(0.12, 0.16, 0.23),
   });
 
-  const authTitle = 'LearnTech Certification Authority';
+  const authTitle = 'First Move(11~18) Certification Authority';
   const authWidth = fontHelveticaBold.widthOfTextAtSize(authTitle, 9);
   page.drawText(authTitle, {
     x: width - 50 - authWidth,
@@ -283,7 +283,7 @@ export async function GET(
     status: 200,
     headers: {
       'Content-Type': 'application/pdf',
-      'Content-Disposition': `attachment; filename="LearnTech-Certificate-${cert.certificate_id}.pdf"`,
+      'Content-Disposition': `attachment; filename="FirstMove-Certificate-${cert.certificate_id}.pdf"`,
       'Cache-Control': 'no-store, max-age=0',
     },
   });

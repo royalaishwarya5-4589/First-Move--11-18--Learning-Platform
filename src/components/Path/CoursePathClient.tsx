@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/Card';
 import { Badge } from '@/components/Badge';
@@ -13,6 +13,19 @@ import { fetchPathProgress } from '@/app/actions/progress';
 import { CertificationRequirements } from '@/components/Certificate/CertificationRequirements';
 import { CertificatePreviewSection } from '@/components/Certificate/CertificatePreviewSection';
 import { isEligibleForCertification } from '@/lib/assessmentEngine';
+import { getCourseImages } from '@/content/course-images';
+import { getCourseCareerMetadata } from '@/content/course-career-data';
+import { CourseHero } from '@/components/Course/CourseHero';
+import { CourseSectionNav } from '@/components/Course/CourseSectionNav';
+import { CourseCareerCompassWidget } from '@/components/Course/CourseCareerCompassWidget';
+import { CourseAreasSection } from '@/components/Course/CourseAreasSection';
+import { CourseToolsSection } from '@/components/Course/CourseToolsSection';
+import { CourseSkillsSection } from '@/components/Course/CourseSkillsSection';
+import { CareerPathwayInteractive } from '@/components/Course/CareerPathwayInteractive';
+import { CourseJobRolesSection } from '@/components/Course/CourseJobRolesSection';
+import { CourseProjectsSection } from '@/components/Course/CourseProjectsSection';
+import { CourseRoadmapSection } from '@/components/Course/CourseRoadmapSection';
+import { Breadcrumb } from '@/components/Breadcrumb';
 
 interface CoursePathClientProps {
   path: Path;
@@ -24,6 +37,11 @@ export function CoursePathClient({ path }: CoursePathClientProps) {
   const { user } = useAuth();
   const [progressMap, setProgressMap] = useState<Record<string, LessonProgress>>({});
   const [, setIsLoading] = useState(true);
+  const [activeSection, setActiveSection] = useState('overview');
+  const [isSticky, setIsSticky] = useState(false);
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  const isManualScrollRef = useRef(false);
+  const manualScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -63,6 +81,158 @@ export function CoursePathClient({ path }: CoursePathClientProps) {
     };
   }, [user, path]);
 
+  // Sentinel observer for detecting sticky state below persistent header
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Persistent header is 4.5rem (72px)
+        setIsSticky(!entry.isIntersecting && entry.boundingClientRect.top <= 72);
+      },
+      { rootMargin: '-72px 0px 0px 0px', threshold: [0, 1] }
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, []);
+
+  // Active section detection via IntersectionObserver and scroll position
+  useEffect(() => {
+    const handleScrollEdges = () => {
+      if (isManualScrollRef.current) return;
+      if (window.scrollY < 120) {
+        setActiveSection('overview');
+        return;
+      }
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60) {
+        setActiveSection('curriculum');
+        return;
+      }
+    };
+
+    window.addEventListener('scroll', handleScrollEdges, { passive: true });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (isManualScrollRef.current) return;
+
+        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          // Sort by proximity to the top offset (144px)
+          visibleEntries.sort(
+            (a, b) =>
+              Math.abs(a.boundingClientRect.top - 144) - Math.abs(b.boundingClientRect.top - 144)
+          );
+          const rawId = visibleEntries[0].target.id;
+          if (rawId) {
+            const mappedId = rawId === 'career-pathway' ? 'jobs' : rawId;
+            setActiveSection(mappedId);
+          }
+        }
+      },
+      {
+        rootMargin: '-140px 0px -45% 0px',
+        threshold: [0, 0.15, 0.4],
+      }
+    );
+
+    const sectionIds = [
+      'overview',
+      'skills',
+      'tools',
+      'areas',
+      'career-pathway',
+      'jobs',
+      'projects',
+      'roadmap',
+      'curriculum',
+    ];
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollEdges);
+      observer.disconnect();
+    };
+  }, []);
+
+  // Handle URL hash on initial load and back/forward navigation
+  useEffect(() => {
+    const handleHashSync = () => {
+      if (typeof window !== 'undefined' && window.location.hash) {
+        const hash = window.location.hash.replace('#', '');
+        const valid = [
+          'overview',
+          'skills',
+          'tools',
+          'areas',
+          'career-pathway',
+          'jobs',
+          'projects',
+          'roadmap',
+          'curriculum',
+        ];
+        if (valid.includes(hash)) {
+          const mapped = hash === 'career-pathway' ? 'jobs' : hash;
+          setActiveSection(mapped);
+          setTimeout(() => {
+            const target = document.getElementById(hash);
+            if (target) {
+              const offset = 144;
+              const pos = target.getBoundingClientRect().top + window.scrollY - offset;
+              window.scrollTo({ top: Math.max(0, pos), behavior: 'smooth' });
+            }
+          }, 150);
+        }
+      }
+    };
+
+    handleHashSync();
+    window.addEventListener('popstate', handleHashSync);
+    return () => window.removeEventListener('popstate', handleHashSync);
+  }, []);
+
+  const handleNavigate = useCallback((sectionId: string) => {
+    setActiveSection(sectionId);
+    isManualScrollRef.current = true;
+    if (manualScrollTimeoutRef.current) {
+      clearTimeout(manualScrollTimeoutRef.current);
+    }
+
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (sectionId === 'overview') {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      });
+    } else {
+      const targetEl = document.getElementById(sectionId);
+      if (targetEl) {
+        const totalOffset = 144; // 72px header + 56px nav + 16px buffer
+        const targetTop = targetEl.getBoundingClientRect().top + window.scrollY - totalOffset;
+        window.scrollTo({
+          top: Math.max(0, targetTop),
+          behavior: prefersReducedMotion ? 'auto' : 'smooth',
+        });
+      }
+    }
+
+    if (typeof window !== 'undefined' && window.history.pushState) {
+      window.history.pushState(null, '', `#${sectionId}`);
+    }
+
+    manualScrollTimeoutRef.current = setTimeout(() => {
+      isManualScrollRef.current = false;
+    }, 750);
+  }, []);
+
   const pathStats = calculatePathProgress(path, progressMap);
   const eligibility = isEligibleForCertification(path, progressMap);
 
@@ -84,238 +254,86 @@ export function CoursePathClient({ path }: CoursePathClientProps) {
     (m) => !level1Modules.includes(m) && !level2Modules.includes(m)
   );
 
+  const images = getCourseImages(path.slug);
+  const careerMeta = getCourseCareerMetadata(path.slug);
+
   return (
-    <div className="site-container" style={{ padding: '3rem 1.5rem 5rem 1.5rem' }}>
-      {/* 1. Hero Header Banner */}
-      <div
-        style={{
-          backgroundColor: 'var(--bg-surface)',
-          border: '1px solid var(--border-color)',
-          borderRadius: 'var(--radius-lg)',
-          padding: '2.5rem',
-          marginBottom: '2.5rem',
-          boxShadow: 'var(--shadow-sm)',
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: '3rem' }}>{path.icon}</span>
-          <div>
-            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '0.3rem' }}>
-              <Badge variant="active">{path.categoryLabel}</Badge>
-              <Badge variant="level">Difficulty: {(path.difficulty || 'Intermediate').toUpperCase()}</Badge>
-              {path.certificationRequirement?.certificationStatus === 'ready' ? (
-                <Badge variant="success">🎓 Certification Ready</Badge>
-              ) : (
-                <Badge variant="roadmap">🧪 Lab Course</Badge>
-              )}
-            </div>
-            <h1 style={{ fontSize: '2.4rem', fontWeight: 800, color: 'var(--text-main)', lineHeight: 1.2 }}>
-              {path.title}
-            </h1>
-          </div>
-        </div>
-
-        <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', maxWidth: '850px', lineHeight: 1.6, marginBottom: '2rem' }}>
-          {path.description}
-        </p>
-
-        {/* 2. Key Metrics Stats Grid (20 Elements Required Info) */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-            gap: '1rem',
-            backgroundColor: 'var(--bg-app)',
-            border: '1px solid var(--border-color)',
-            borderRadius: 'var(--radius-md)',
-            padding: '1.25rem',
-            marginBottom: '2rem',
-          }}
-        >
-          <div style={{ textAlign: 'center' }}>
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600, display: 'block' }}>ESTIMATED TIME</span>
-            <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--accent-primary)' }}>⏱️ ~{path.estimatedHours} Hours</span>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600, display: 'block' }}>TOTAL LESSONS</span>
-            <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)' }}>📚 {path.totalLessons} Lessons</span>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600, display: 'block' }}>EXERCISES</span>
-            <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)' }}>⚡ {totalExercises} Practice Exercises</span>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600, display: 'block' }}>PORTFOLIO PROJECTS</span>
-            <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)' }}>🚀 {totalProjects} Projects</span>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600, display: 'block' }}>FINAL ASSESSMENT</span>
-            <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)' }}>🎯 {finalAssessment ? 'Available' : 'Included'}</span>
-          </div>
-        </div>
-
-        {/* 3. Real Progress Tracker & Action CTA */}
-        <div
-          style={{
-            backgroundColor: 'var(--bg-app)',
-            border: '1px solid var(--border-color)',
-            borderRadius: 'var(--radius-md)',
-            padding: '1.25rem 1.5rem',
-          }}
-        >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-            <span style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--text-main)' }}>
-              Learner Path Progression
-            </span>
-            <span style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--accent-primary)' }}>
-              {pathStats.completedLessons} / {pathStats.totalLessons} Lessons ({pathStats.percentage}%)
-            </span>
-          </div>
-
-          <div
-            style={{
-              width: '100%',
-              height: '12px',
-              backgroundColor: 'var(--bg-surface)',
-              borderRadius: '6px',
-              overflow: 'hidden',
-              border: '1px solid var(--border-color)',
-              marginBottom: '1.25rem',
-            }}
-          >
-            <div
-              style={{
-                height: '100%',
-                width: `${pathStats.percentage}%`,
-                backgroundColor: pathStats.percentage === 100 ? '#10b981' : 'var(--accent-primary)',
-                borderRadius: '6px',
-                transition: 'width 0.4s ease',
-              }}
-            />
-          </div>
-
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-            {pathStats.nextLesson && !pathStats.nextLesson.isPathCompleted ? (
-              <div>
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 700, display: 'block' }}>
-                  NEXT LESSON
-                </span>
-                <span style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--text-main)' }}>
-                  {pathStats.nextLesson.lessonTitle}
-                </span>
-              </div>
-            ) : (
-              <div style={{ fontSize: '1rem', color: '#10b981', fontWeight: 700 }}>
-                🎉 You have completed all lessons in this path!
-              </div>
-            )}
-
-            <Button
-              href={
-                pathStats.nextLesson && !pathStats.nextLesson.isPathCompleted
-                  ? `/paths/${path.slug}/lessons/${pathStats.nextLesson.lessonSlug}`
-                  : `/paths/${path.slug}/lessons/${path.modules[0]?.lessons[0]?.slug || ''}`
-              }
-              variant="primary"
-              size="md"
-              style={{ fontWeight: 800, padding: '0.75rem 1.75rem' }}
-            >
-              {pathStats.completedLessons > 0 ? 'Continue Learning →' : 'Start Course Now →'}
-            </Button>
-          </div>
-        </div>
+    <div className="course-detail-wrapper" style={{ width: '100%' }}>
+      {/* 1. Course Hero Section */}
+      <div className="site-container-wide" style={{ paddingTop: '2.5rem', paddingBottom: '0.75rem' }}>
+        <Breadcrumb
+          items={[
+            { label: 'Home', href: '/', icon: '🏠' },
+            { label: 'Courses', href: '/paths', icon: '📚' },
+            { label: path.title, icon: path.icon },
+          ]}
+        />
+        <CourseHero
+          path={path}
+          images={images}
+          completedLessonsCount={pathStats.completedLessons}
+          totalExercises={totalExercises}
+          totalProjects={totalProjects}
+        />
       </div>
 
-      {/* 4. Course Overview & Learning Outcomes Section */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '2rem',
-          marginBottom: '3rem',
-        }}
-      >
-        <div
-          style={{
-            backgroundColor: 'var(--bg-surface)',
-            border: '1px solid var(--border-color)',
-            borderRadius: 'var(--radius-lg)',
-            padding: '1.75rem',
-          }}
-        >
-          <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '1rem', color: 'var(--text-main)' }}>
-            🎯 What You Will Learn & Master
-          </h3>
-          <ul style={{ paddingLeft: '1.2rem', color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '0.95rem' }}>
-            <li>Master core foundational concepts, syntax conventions, and language runtimes.</li>
-            <li>Solve real-world problems with production design patterns and optimized algorithms.</li>
-            <li>Build portfolio projects matching real software engineering specifications.</li>
-            <li>Identify security vulnerabilities, common pitfalls, and operational anti-patterns.</li>
-            <li>Pass comprehensive final assessments validating job-ready technical competence.</li>
-          </ul>
-        </div>
+      {/* Sentinel for detecting when navigation docks beneath the header */}
+      <div ref={sentinelRef} style={{ height: '1px', marginTop: '-1px', pointerEvents: 'none' }} />
 
-        <div
-          style={{
-            backgroundColor: 'var(--bg-surface)',
-            border: '1px solid var(--border-color)',
-            borderRadius: 'var(--radius-lg)',
-            padding: '1.75rem',
-          }}
-        >
-          <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '1rem', color: 'var(--text-main)' }}>
-            📋 Course Prerequisites & Skills Gained
-          </h3>
-          <div style={{ marginBottom: '1.25rem' }}>
-            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-muted)', display: 'block', marginBottom: '0.4rem' }}>
-              PREREQUISITES:
-            </span>
-            <span style={{ fontSize: '0.95rem', color: 'var(--text-main)', fontWeight: 600 }}>
-              {path.difficulty === 'beginner' || path.difficulty === 'mastery'
-                ? 'No prior programming background required. Starts from absolute foundations.'
-                : 'Basic programming literacy and terminal CLI usage recommended.'}
-            </span>
-          </div>
-
-          <div>
-            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-muted)', display: 'block', marginBottom: '0.5rem' }}>
-              SKILLS GAINED:
-            </span>
-            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-              {['Core Logic', 'Clean Code', 'Debugging', 'Production Practice', 'Problem Solving'].map((skill) => (
-                <span
-                  key={skill}
-                  style={{
-                    backgroundColor: 'var(--bg-app)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '15px',
-                    padding: '0.25rem 0.75rem',
-                    fontSize: '0.8rem',
-                    fontWeight: 700,
-                    color: 'var(--text-main)',
-                  }}
-                >
-                  ⚡ {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 5. Certificate Preview Section */}
-      <CertificatePreviewSection
-        courseName={path.title}
-        courseSlug={path.slug}
-        level="Level 1–3 | Professional Learning Path"
-        skills={path.certificationRequirement?.skillsCovered}
+      {/* Sticky Section Navigation */}
+      <CourseSectionNav
+        activeSection={activeSection}
+        onNavigate={handleNavigate}
+        isSticky={isSticky}
       />
 
-      {/* 6. Certification Requirements Widget */}
-      <CertificationRequirements path={path} eligibility={eligibility} />
+      {/* Main Course Content Sections */}
+      <div className="site-container-wide" style={{ paddingTop: '2.5rem', paddingBottom: '5rem' }}>
+        {/* 2. Personalized Career Compass Integration Widget */}
+        <CourseCareerCompassWidget careerMeta={careerMeta} />
 
-      {/* 6. Complete Learning Journey Visual Curriculum (Level 1 -> Level 2 -> Level 3) */}
-      <div style={{ marginTop: '3rem', marginBottom: '4rem' }}>
+        {/* 3. Skills You'll Build (Categorized: Technical, Problem Solving, Professional) */}
+        <CourseSkillsSection skills={careerMeta.skills} />
+
+        {/* 4. Tools & Technologies You'll Work With */}
+        <CourseToolsSection tools={careerMeta.tools} />
+
+        {/* 5. Where You'll Use This (Industry Application Areas) */}
+        <CourseAreasSection areas={careerMeta.areas} courseTitle={path.title} />
+
+        {/* 6. Signature Course-to-Career Connection Flow (Course -> Skills -> Tools -> Areas -> Roles) */}
+        <CareerPathwayInteractive pathway={careerMeta.pathway} />
+
+        {/* 7. Career Opportunities (Job Roles with Deep-Dive Explore Drawer) */}
+        <CourseJobRolesSection jobRoles={careerMeta.jobRoles} courseTitle={path.title} />
+
+        {/* 8. Real Projects You Can Build */}
+        <CourseProjectsSection projects={careerMeta.realWorldProjects} courseTitle={path.title} />
+
+        {/* 9. Visual Learning Roadmap (6-Stage Progression) */}
+        <CourseRoadmapSection
+          stages={careerMeta.learningStages}
+          completedLessonsCount={pathStats.completedLessons}
+          totalLessons={path.totalLessons}
+        />
+
+        {/* 10. Certificate Preview Section */}
+        <CertificatePreviewSection
+          courseName={path.title}
+          courseSlug={path.slug}
+          level="Level 1–3 | Professional Learning Path"
+          skills={path.certificationRequirement?.skillsCovered}
+        />
+
+        {/* 11. Certification Requirements Widget */}
+        <CertificationRequirements path={path} eligibility={eligibility} />
+
+        {/* 12. Complete Learning Journey Visual Curriculum (Level 1 -> Level 2 -> Level 3) */}
+        <div
+          id="curriculum"
+          className="course-anchor-target"
+          style={{ marginTop: '3.5rem', marginBottom: '4rem', scrollMarginTop: '144px' }}
+        >
         <div style={{ marginBottom: '2rem' }}>
           <span className="section-tag">Structured Learning Journey</span>
           <h2 style={{ fontSize: '2rem', fontWeight: 800, marginTop: '0.3rem', color: 'var(--text-main)' }}>
@@ -471,6 +489,7 @@ export function CoursePathClient({ path }: CoursePathClientProps) {
           </Button>
         </div>
       )}
+      </div>
     </div>
   );
 }

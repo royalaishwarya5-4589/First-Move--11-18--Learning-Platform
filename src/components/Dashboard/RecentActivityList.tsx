@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { RecentActivityItem } from '@/types/user';
 import { Card } from '@/components/Card';
+import { EmptyState } from '@/components/EmptyState';
 import { formatRelativeTime } from '@/lib/progressUtils';
 
 interface RecentActivityListProps {
@@ -13,29 +14,18 @@ interface RecentActivityListProps {
 export function RecentActivityList({ activity }: RecentActivityListProps) {
   if (!activity || activity.length === 0) {
     return (
-      <Card hoverable={false} style={{ marginBottom: '2rem' }}>
-        <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+      <div style={{ marginBottom: '2rem' }}>
+        <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '0.85rem' }}>
           Recent Activity
         </h3>
-        <div style={{ padding: '1.5rem 1rem', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-          <p style={{ marginBottom: '0.75rem' }}>Start your Python journey! No learning activity recorded yet.</p>
-          <Link
-            href="/paths/python"
-            style={{
-              backgroundColor: 'var(--accent-primary)',
-              color: '#ffffff',
-              padding: '0.4rem 0.85rem',
-              borderRadius: 'var(--radius-sm)',
-              fontWeight: 600,
-              fontSize: '0.85rem',
-              textDecoration: 'none',
-              display: 'inline-block',
-            }}
-          >
-            Start Learning →
-          </Link>
-        </div>
-      </Card>
+        <EmptyState
+          icon="⚡"
+          title="No Learning Activity Yet"
+          description="Start exploring structured lessons, solving interactive exercises, and taking quizzes to build your learning record."
+          actionLabel="Start Learning →"
+          actionHref="/paths"
+        />
+      </div>
     );
   }
 

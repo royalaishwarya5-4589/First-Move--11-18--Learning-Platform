@@ -16,12 +16,12 @@ export async function generateMetadata({ params }: PageProps) {
 
   if (!details) {
     return {
-      title: 'Lesson Not Found | LearnTech',
+      title: 'Lesson Not Found | First Move(11~18)',
     };
   }
 
   return {
-    title: `${details.lesson.title} - ${details.path.title} | LearnTech`,
+    title: `${details.lesson.title} - ${details.path.title} | First Move(11~18)`,
     description: details.lesson.description,
   };
 }
