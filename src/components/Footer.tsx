@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Footer() {
   return (
@@ -22,9 +23,26 @@ export function Footer() {
           }}
         >
           <div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.75rem' }}>
-              First Move (11–18)
-            </h3>
+            <div style={{ marginBottom: '0.85rem' }}>
+              <Link href="/" style={{ display: 'inline-block', textDecoration: 'none', lineHeight: 0 }}>
+                <Image
+                  src="/images/firstmove-logo.png"
+                  alt="First Move (11~18) - Code, Learn, Build"
+                  width={140}
+                  height={93}
+                  style={{
+                    height: '48px',
+                    width: 'auto',
+                    maxHeight: '52px',
+                    objectFit: 'contain',
+                    borderRadius: '8px',
+                    background: '#FFFFFF',
+                    padding: '3px 6px',
+                    display: 'block',
+                  }}
+                />
+              </Link>
+            </div>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.5 }}>
               Structured, level-based technology learning paths from foundational exploration to industry mastery.
             </p>

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { Badge } from './Badge';
@@ -89,30 +90,30 @@ export function Header() {
           href="/"
           className="btn-interactive"
           style={{
-            display: 'flex',
+            display: 'inline-flex',
             alignItems: 'center',
-            gap: '0.65rem',
             textDecoration: 'none',
-            color: 'var(--text-main)',
-            fontWeight: 850,
-            fontSize: '1.25rem',
-            letterSpacing: '-0.02em',
+            lineHeight: 0,
+            borderRadius: '8px',
           }}
         >
-          <span
+          <Image
+            src="/images/firstmove-logo.png"
+            alt="First Move (11~18) - Code, Learn, Build"
+            width={120}
+            height={80}
+            priority
             style={{
-              background: 'var(--accent-primary)',
-              color: 'var(--text-inverse)',
-              padding: '0.25rem 0.65rem',
-              borderRadius: 'var(--radius-sm)',
-              fontSize: '0.925rem',
-              fontWeight: 850,
-              boxShadow: '0 2px 8px rgba(24, 26, 29, 0.16)',
+              height: 'clamp(36px, 4vw, 44px)',
+              width: 'auto',
+              maxHeight: '44px',
+              objectFit: 'contain',
+              borderRadius: '6px',
+              background: '#FFFFFF',
+              padding: '2px 4px',
+              display: 'block',
             }}
-          >
-            FM
-          </span>
-          <span>First Move (11–18)</span>
+          />
         </Link>
 
         {/* Desktop Navigation */}

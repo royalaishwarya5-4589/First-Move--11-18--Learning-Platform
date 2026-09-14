@@ -35,6 +35,15 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "First Move (11–18) | Educational Technology Learning Platform",
   description: "First Move (11–18) - Learn technology from foundational to advanced mastery through structured learning paths, active practice, and curated resources.",
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
   openGraph: {
     title: "First Move (11–18) | Educational Technology Learning Platform",
     description: "First Move (11–18) - Learn technology from foundational to advanced mastery through structured learning paths, active practice, and curated resources.",
