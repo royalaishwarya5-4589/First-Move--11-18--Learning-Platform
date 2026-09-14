@@ -12,11 +12,11 @@
       "projects": "GOOD",
       "assessment": "PASS",
       "overall": "NEEDS CONTENT WORK",
-      "avgL1Words": 39,
-      "avgL2Words": 33,
-      "avgL3Words": 25,
-      "shallowCount": 29,
-      "totalLessons": 30
+      "avgL1Words": 16,
+      "avgL2Words": 14,
+      "avgL3Words": 15,
+      "shallowCount": 48,
+      "totalLessons": 48
     },
     {
       "course": "Java",
@@ -30,11 +30,11 @@
       "projects": "GOOD",
       "assessment": "PASS",
       "overall": "NEEDS CONTENT WORK",
-      "avgL1Words": 336,
-      "avgL2Words": 65,
-      "avgL3Words": 39,
-      "shallowCount": 5,
-      "totalLessons": 7
+      "avgL1Words": 89,
+      "avgL2Words": 50,
+      "avgL3Words": 46,
+      "shallowCount": 24,
+      "totalLessons": 25
     },
     {
       "course": "JavaScript",
@@ -160,7 +160,7 @@
       "avgL2Words": 41,
       "avgL3Words": 61,
       "shallowCount": 6,
-      "totalLessons": 7
+      "totalLessons": 6
     },
     {
       "course": "Linux Security",
@@ -178,7 +178,7 @@
       "avgL2Words": 57,
       "avgL3Words": 37,
       "shallowCount": 6,
-      "totalLessons": 7
+      "totalLessons": 6
     },
     {
       "course": "Git/GitHub",
@@ -214,7 +214,7 @@
       "avgL2Words": 40,
       "avgL3Words": 33,
       "shallowCount": 6,
-      "totalLessons": 7
+      "totalLessons": 6
     },
     {
       "course": "Testing",
@@ -274,210 +274,438 @@
   "shallowLessonsMap": {
     "python": [
       {
+        "id": "py-les-0-1",
+        "title": "What Programming Is, CPU Architecture & Python Execution Model",
+        "words": 27,
+        "module": "Level 1: Foundations — Programming & Syntax Basics"
+      },
+      {
         "id": "py-les-0-2",
-        "title": "Variables, Data Types & Input/Output",
-        "words": 55,
-        "module": "Level 0: Absolute Beginner — Programming & Syntax Basics"
+        "title": "Variables, Primitive Types, Dynamic Typing & Console Input/Output",
+        "words": 15,
+        "module": "Level 1: Foundations — Programming & Syntax Basics"
       },
       {
         "id": "py-les-1",
-        "title": "Variables & Fundamental Data Types",
-        "words": 77,
-        "module": "Level 1: Python Foundations — Data Structures & Core IO"
+        "title": "Python Variables, Memory Architecture & Pointer References",
+        "words": 18,
+        "module": "Level 1: Foundations — Memory Architecture, Strings & Operators"
+      },
+      {
+        "id": "py-les-1-4",
+        "title": "Strings, Immutability, Indexing, Slicing & Advanced String Manipulation",
+        "words": 11,
+        "module": "Level 1: Foundations — Memory Architecture, Strings & Operators"
+      },
+      {
+        "id": "py-les-1-5",
+        "title": "Operators, Expressions, Precedence & Type Conversion",
+        "words": 14,
+        "module": "Level 1: Foundations — Memory Architecture, Strings & Operators"
       },
       {
         "id": "py-les-2",
-        "title": "Control Flow & Conditional Logic",
-        "words": 22,
-        "module": "Level 1: Python Foundations — Data Structures & Core IO"
+        "title": "Control Flow, Logical Operators, Short-Circuit Evaluation & Pattern Matching",
+        "words": 11,
+        "module": "Level 1: Foundations — Control Flow, Iteration & Data Structures"
       },
       {
         "id": "py-les-3",
-        "title": "Loops & Iteration",
-        "words": 21,
-        "module": "Level 1: Python Foundations — Data Structures & Core IO"
+        "title": "Loops, Iteration Protocols, range, enumerate & zip Sequences",
+        "words": 16,
+        "module": "Level 1: Foundations — Control Flow, Iteration & Data Structures"
       },
       {
-        "id": "py-les-4",
-        "title": "Functions, Parameters & Scope",
+        "id": "py-les-2-8",
+        "title": "Loop Control Statements (break, continue, pass) & Python's else Clause",
         "words": 19,
-        "module": "Level 1: Python Foundations — Data Structures & Core IO"
+        "module": "Level 1: Foundations — Control Flow, Iteration & Data Structures"
       },
       {
         "id": "py-les-5",
-        "title": "Lists, Tuples & Slicing",
-        "words": 16,
-        "module": "Level 1: Python Foundations — Data Structures & Core IO"
+        "title": "Lists, Tuples, Immutability, Sequence Slicing & List Comprehensions",
+        "words": 13,
+        "module": "Level 1: Foundations — Control Flow, Iteration & Data Structures"
       },
       {
         "id": "py-les-6",
-        "title": "Dictionaries, Sets & Hash Lookups",
-        "words": 16,
-        "module": "Level 1: Python Foundations — Data Structures & Core IO"
+        "title": "Dictionaries, Hash Tables, Sets, Hashability & Dict Comprehensions",
+        "words": 18,
+        "module": "Level 1: Foundations — Control Flow, Iteration & Data Structures"
+      },
+      {
+        "id": "py-les-4",
+        "title": "Functions, Parameter Passing, LEGB Scope Rules, Closures & Recursion",
+        "words": 13,
+        "module": "Level 1: Foundations — Control Flow, Iteration & Data Structures"
+      },
+      {
+        "id": "py-les-2-12",
+        "title": "Advanced Arguments (*args, **kwargs), Default Parameter Pitfalls & Lambda Expressions",
+        "words": 19,
+        "module": "Level 1: Foundations — Control Flow, Iteration & Data Structures"
       },
       {
         "id": "py-les-7",
-        "title": "Exceptions, File I/O, JSON & CSV Handling",
-        "words": 23,
-        "module": "Level 1: Python Foundations — Data Structures & Core IO"
+        "title": "Exception Handling, Custom Exceptions & Defensive Programming",
+        "words": 14,
+        "module": "Level 2: Core Skills — Exception Handling, File I/O & Environments"
       },
       {
-        "id": "py-les-2-1",
-        "title": "OOP Foundations: Classes, Objects & Constructors",
-        "words": 24,
-        "module": "Level 2: Intermediate Python — OOP, Functional & Testing"
-      },
-      {
-        "id": "py-les-2-2",
-        "title": "Inheritance, Polymorphism & Encapsulation",
-        "words": 38,
-        "module": "Level 2: Intermediate Python — OOP, Functional & Testing"
-      },
-      {
-        "id": "py-les-2-3",
-        "title": "Iterators, Generators & Decorators",
-        "words": 28,
-        "module": "Level 2: Intermediate Python — OOP, Functional & Testing"
-      },
-      {
-        "id": "py-les-2-4",
-        "title": "Context Managers, Dataclasses, Type Hints & Testing",
-        "words": 42,
-        "module": "Level 2: Intermediate Python — OOP, Functional & Testing"
+        "id": "py-les-3-14",
+        "title": "File I/O, UTF-8 Encoding & Context Managers (with statement)",
+        "words": 14,
+        "module": "Level 2: Core Skills — Exception Handling, File I/O & Environments"
       },
       {
         "id": "py-les-3-1",
-        "title": "Package Management, Virtual Envs & Logging",
-        "words": 20,
-        "module": "Level 3: Professional Python — Tooling, APIs & Async"
+        "title": "Package Management, Virtual Environments (venv/uv) & Production Layout",
+        "words": 12,
+        "module": "Level 2: Core Skills — Exception Handling, File I/O & Environments"
       },
       {
-        "id": "py-les-3-2",
-        "title": "HTTP, REST APIs & JSON API Clients",
-        "words": 24,
-        "module": "Level 3: Professional Python — Tooling, APIs & Async"
+        "id": "py-les-3-16",
+        "title": "Enterprise Package Management, Dependencies (poetry, pyproject.toml)",
+        "words": 10,
+        "module": "Level 2: Core Skills — Exception Handling, File I/O & Environments"
       },
       {
-        "id": "py-les-3-3",
-        "title": "Database Programming & SQL Integration",
-        "words": 22,
-        "module": "Level 3: Professional Python — Tooling, APIs & Async"
+        "id": "py-les-2-1",
+        "title": "Object-Oriented Programming: Classes, Instances, Attributes & Dunder Methods",
+        "words": 15,
+        "module": "Level 2: Core Skills — Object-Oriented Programming & Design"
       },
       {
-        "id": "py-les-3-4",
-        "title": "Asynchronous Programming & asyncio Essentials",
-        "words": 25,
-        "module": "Level 3: Professional Python — Tooling, APIs & Async"
+        "id": "py-les-4-18",
+        "title": "Encapsulation, Private Attributes (_ vs __) & @property Decorators",
+        "words": 13,
+        "module": "Level 2: Core Skills — Object-Oriented Programming & Design"
       },
       {
-        "id": "py-les-4-1",
-        "title": "FastAPI & Modern Web Backend Frameworks",
-        "words": 21,
-        "module": "Level 4: Python Backend — FastAPI, Databases & Docker"
+        "id": "py-les-2-2",
+        "title": "Inheritance, Method Resolution Order (MRO), Abstract Classes & Encapsulation",
+        "words": 15,
+        "module": "Level 2: Core Skills — Object-Oriented Programming & Design"
       },
       {
-        "id": "py-les-4-2",
-        "title": "Backend Authentication & Security Architecture",
-        "words": 20,
-        "module": "Level 4: Python Backend — FastAPI, Databases & Docker"
+        "id": "py-les-4-20",
+        "title": "Abstract Base Classes (ABCs), @abstractmethod, Protocols & Duck Typing",
+        "words": 14,
+        "module": "Level 2: Core Skills — Object-Oriented Programming & Design"
       },
       {
-        "id": "py-les-4-3",
-        "title": "PostgreSQL, ORM & Database Migrations",
-        "words": 21,
-        "module": "Level 4: Python Backend — FastAPI, Databases & Docker"
+        "id": "py-les-4-21",
+        "title": "Special (Dunder) Methods: __str__, __repr__, __len__, __eq__, __add__",
+        "words": 14,
+        "module": "Level 2: Core Skills — Object-Oriented Programming & Design"
       },
       {
-        "id": "py-les-4-4",
-        "title": "Docker Containerization & CI/CD Deployment",
-        "words": 21,
-        "module": "Level 4: Python Backend — FastAPI, Databases & Docker"
+        "id": "py-les-5-22",
+        "title": "Comprehensions (List, Set, Dict), Nested Comprehensions & Readability Rules",
+        "words": 14,
+        "module": "Level 2: Core Skills — Intermediate Python, Iterators & Typing"
       },
       {
-        "id": "py-les-5-1",
-        "title": "Concurrency: asyncio, Threading & Multiprocessing",
-        "words": 42,
-        "module": "Level 5: Advanced Python — Concurrency, Performance & Architecture"
+        "id": "py-les-2-3",
+        "title": "Iterators, Generators, yield Statements & Function Decorators",
+        "words": 14,
+        "module": "Level 2: Core Skills — Intermediate Python, Iterators & Typing"
+      },
+      {
+        "id": "py-les-5-24",
+        "title": "Higher-Order Functions, Closures, Decorators with Arguments & @wraps",
+        "words": 13,
+        "module": "Level 2: Core Skills — Intermediate Python, Iterators & Typing"
+      },
+      {
+        "id": "py-les-5-25",
+        "title": "Functional Tools: map(), filter(), reduce(), functools & itertools",
+        "words": 12,
+        "module": "Level 2: Core Skills — Intermediate Python, Iterators & Typing"
+      },
+      {
+        "id": "py-les-2-4",
+        "title": "Context Managers, dataclasses Module & Modern Static Type Annotations",
+        "words": 14,
+        "module": "Level 2: Core Skills — Intermediate Python, Iterators & Typing"
+      },
+      {
+        "id": "py-les-5-27",
+        "title": "Type Annotations, Generics, mypy Static Checking & Pydantic Data Validation",
+        "words": 16,
+        "module": "Level 2: Core Skills — Intermediate Python, Iterators & Typing"
+      },
+      {
+        "id": "py-les-6-28",
+        "title": "Attribute Lookup Flow (__getattribute__) & Descriptor Protocol (__get__, __set__)",
+        "words": 12,
+        "module": "Level 3: Production Mastery — Metaprogramming & CPython Internals"
+      },
+      {
+        "id": "py-les-6-29",
+        "title": "Dynamic Class Creation, Metaclasses (type), __new__ vs __init__ & __init_subclass__",
+        "words": 14,
+        "module": "Level 3: Production Mastery — Metaprogramming & CPython Internals"
       },
       {
         "id": "py-les-5-2",
-        "title": "Performance Optimization, Profiling & Memory Management",
-        "words": 26,
-        "module": "Level 5: Advanced Python — Concurrency, Performance & Architecture"
+        "title": "Performance Profiling, Memory Optimization & CPython Internals",
+        "words": 16,
+        "module": "Level 3: Production Mastery — Metaprogramming & CPython Internals"
       },
       {
-        "id": "py-les-5-3",
-        "title": "Advanced Typing, Protocols & Clean Architecture",
-        "words": 26,
-        "module": "Level 5: Advanced Python — Concurrency, Performance & Architecture"
+        "id": "py-les-5-1",
+        "title": "Advanced Concurrency: asyncio, Multithreading, Multiprocessing & GIL Bypassing",
+        "words": 12,
+        "module": "Level 3: Production Mastery — Concurrency, Multiprocessing & Async I/O"
       },
       {
-        "id": "py-les-5-4",
-        "title": "Production Error Handling & Observability",
-        "words": 22,
-        "module": "Level 5: Advanced Python — Concurrency, Performance & Architecture"
+        "id": "py-les-3-4",
+        "title": "Introduction to Asynchronous I/O, Coroutines & asyncio Event Loop",
+        "words": 15,
+        "module": "Level 3: Production Mastery — Concurrency, Multiprocessing & Async I/O"
       },
       {
-        "id": "py-les-6-1",
-        "title": "Production Architecture & Scalable API Design",
-        "words": 24,
-        "module": "Level 6: Industry Mastery — Scalable Systems & Production Engineering"
+        "id": "py-les-7-33",
+        "title": "Production Async Patterns: Async HTTP Client (httpx), Semaphores & Rate Limiting",
+        "words": 13,
+        "module": "Level 3: Production Mastery — Concurrency, Multiprocessing & Async I/O"
       },
       {
-        "id": "py-les-6-2",
-        "title": "Caching, Message Queues & Background Workers",
-        "words": 29,
-        "module": "Level 6: Industry Mastery — Scalable Systems & Production Engineering"
+        "id": "py-les-8-34",
+        "title": "Automated Testing: pytest, Test Discovery, Assertions, Fixtures & Coverage",
+        "words": 16,
+        "module": "Level 3: Production Mastery — Automated Testing, Quality & Security"
+      },
+      {
+        "id": "py-les-8-35",
+        "title": "Test Doubles: unittest.mock, @patch, Mocks, MagicMocks & Dependency Injection",
+        "words": 17,
+        "module": "Level 3: Production Mastery — Automated Testing, Quality & Security"
       },
       {
         "id": "py-les-6-3",
-        "title": "Security Architecture, Monitoring & Hardening",
-        "words": 28,
-        "module": "Level 6: Industry Mastery — Scalable Systems & Production Engineering"
+        "title": "Python Security Architecture, Vulnerability Mitigation & OWASP Compliance",
+        "words": 16,
+        "module": "Level 3: Production Mastery — Automated Testing, Quality & Security"
+      },
+      {
+        "id": "py-les-3-2",
+        "title": "Working with HTTP APIs, JSON Data & Resilient Web Client Architecture",
+        "words": 16,
+        "module": "Level 3: Production Mastery — Enterprise Backends, Infrastructure & Capstone"
+      },
+      {
+        "id": "py-les-4-1",
+        "title": "FastAPI Microservices, Pydantic v2 Schemas & Request Validation",
+        "words": 17,
+        "module": "Level 3: Production Mastery — Enterprise Backends, Infrastructure & Capstone"
+      },
+      {
+        "id": "py-les-4-2",
+        "title": "JWT Authentication, Password Hashing & Security Middleware",
+        "words": 14,
+        "module": "Level 3: Production Mastery — Enterprise Backends, Infrastructure & Capstone"
+      },
+      {
+        "id": "py-les-3-3",
+        "title": "Relational Database Programming with SQLite & PostgreSQL (DB-API 2.0)",
+        "words": 18,
+        "module": "Level 3: Production Mastery — Enterprise Backends, Infrastructure & Capstone"
+      },
+      {
+        "id": "py-les-4-3",
+        "title": "SQLAlchemy 2.0 Async ORM & Alembic Database Migrations",
+        "words": 19,
+        "module": "Level 3: Production Mastery — Enterprise Backends, Infrastructure & Capstone"
+      },
+      {
+        "id": "py-les-6-2",
+        "title": "Enterprise Caching with Redis & Asynchronous Task Queues (Celery / ARQ)",
+        "words": 18,
+        "module": "Level 3: Production Mastery — Enterprise Backends, Infrastructure & Capstone"
+      },
+      {
+        "id": "py-les-4-4",
+        "title": "Containerizing Python Applications with Docker & CI/CD Pipelines",
+        "words": 13,
+        "module": "Level 3: Production Mastery — Enterprise Backends, Infrastructure & Capstone"
+      },
+      {
+        "id": "py-les-5-4",
+        "title": "Production Observability, Structured Logging & Error Telemetry",
+        "words": 16,
+        "module": "Level 3: Production Mastery — Enterprise Backends, Infrastructure & Capstone"
+      },
+      {
+        "id": "py-les-5-3",
+        "title": "Advanced Typing, Structural Generics & Enterprise Design Patterns",
+        "words": 16,
+        "module": "Level 3: Production Mastery — Enterprise Backends, Infrastructure & Capstone"
+      },
+      {
+        "id": "py-les-6-1",
+        "title": "Production Architecture, Rate Limiting & High-Availability API Design",
+        "words": 14,
+        "module": "Level 3: Production Mastery — Enterprise Backends, Infrastructure & Capstone"
       },
       {
         "id": "py-les-6-4",
-        "title": "Performance Engineering & Production Maintainability",
-        "words": 30,
-        "module": "Level 6: Industry Mastery — Scalable Systems & Production Engineering"
+        "title": "Enterprise Performance Engineering, Large-Scale Refactoring & Maintainability",
+        "words": 14,
+        "module": "Level 3: Production Mastery — Enterprise Backends, Infrastructure & Capstone"
       },
       {
         "id": "py-les-7-1",
-        "title": "Portfolio Architecture & Capstone Guidelines",
-        "words": 28,
-        "module": "Level 7: Portfolio & Capstone Projects"
+        "title": "Capstone Project Architecture & Technical Portfolio Defense",
+        "words": 19,
+        "module": "Level 3: Production Mastery — Enterprise Backends, Infrastructure & Capstone"
       }
     ],
     "java": [
       {
+        "id": "java-les-2",
+        "title": "JVM Internals, JDK vs JRE & ClassLoader Subsystem",
+        "words": 55,
+        "module": "Level 1: Java Syntax & Object-Oriented Principles"
+      },
+      {
         "id": "java-les-3",
-        "title": "Java Collection Framework (List, Set, Map)",
-        "words": 86,
-        "module": "Level 2: Collections, Generics & Exception Handling"
+        "title": "Control Flow, Operators, Decision Trees & Modern Switch Expressions",
+        "words": 47,
+        "module": "Level 1: Java Syntax & Object-Oriented Principles"
       },
       {
         "id": "java-les-4",
-        "title": "Exception Handling, Custom Exceptions & Generics",
-        "words": 44,
-        "module": "Level 2: Collections, Generics & Exception Handling"
+        "title": "Classes, Objects, Constructors & Encapsulation Rules",
+        "words": 23,
+        "module": "Level 1: Java Syntax & Object-Oriented Principles"
       },
       {
         "id": "java-les-5",
-        "title": "Stream API, Lambda Expressions & Functional Processing",
-        "words": 46,
-        "module": "Level 3: Streams, Multithreading & Spring Boot"
+        "title": "Inheritance, Abstract Classes, Interfaces & Polymorphism",
+        "words": 35,
+        "module": "Level 1: Java Syntax & Object-Oriented Principles"
       },
       {
         "id": "java-les-6",
-        "title": "Multithreading, ExecutorService & Concurrency Utilities",
-        "words": 32,
-        "module": "Level 3: Streams, Multithreading & Spring Boot"
+        "title": "Arrays, String Memory Internals (String Pool & Immutability) & StringBuilder",
+        "words": 46,
+        "module": "Level 1: Java Syntax & Object-Oriented Principles"
       },
       {
         "id": "java-les-7",
-        "title": "Spring Boot REST Architecture & Microservice Endpoints",
+        "title": "Java Collections Framework (List, Set, Queue & Deque)",
+        "words": 43,
+        "module": "Level 2: Collections, Memory Management & Advanced Java Features"
+      },
+      {
+        "id": "java-les-8",
+        "title": "HashMap Internals, Hashing Functions, Hash Collisions & TreeMap",
+        "words": 75,
+        "module": "Level 2: Collections, Memory Management & Advanced Java Features"
+      },
+      {
+        "id": "java-les-9",
+        "title": "Java Generics, Type Erasure, Wildcards & Covariance/Contravariance",
+        "words": 64,
+        "module": "Level 2: Collections, Memory Management & Advanced Java Features"
+      },
+      {
+        "id": "java-les-10",
+        "title": "Exception Handling, Custom Exceptions & Try-With-Resources",
         "words": 39,
-        "module": "Level 3: Streams, Multithreading & Spring Boot"
+        "module": "Level 2: Collections, Memory Management & Advanced Java Features"
+      },
+      {
+        "id": "java-les-11",
+        "title": "JVM Memory Management: Heap, Stack, Metaspace & Garbage Collection Internals",
+        "words": 54,
+        "module": "Level 2: Collections, Memory Management & Advanced Java Features"
+      },
+      {
+        "id": "java-les-12",
+        "title": "Stream API, Lambda Expressions & Functional Processing",
+        "words": 34,
+        "module": "Level 2: Collections, Memory Management & Advanced Java Features"
+      },
+      {
+        "id": "java-les-13",
+        "title": "Java File I/O, NIO.2 Channels, Buffers & Object Serialization",
+        "words": 39,
+        "module": "Level 2: Collections, Memory Management & Advanced Java Features"
+      },
+      {
+        "id": "java-les-14",
+        "title": "Multithreading Foundations, Thread State Lifecycle & Synchronization",
+        "words": 51,
+        "module": "Level 2: Collections, Memory Management & Advanced Java Features"
+      },
+      {
+        "id": "java-les-15",
+        "title": "ExecutorService, Thread Pools, Atomic Types & Concurrent Collections",
+        "words": 49,
+        "module": "Level 2: Collections, Memory Management & Advanced Java Features"
+      },
+      {
+        "id": "java-les-16",
+        "title": "Build Automation Tools: Maven & Gradle Dependency Architecture",
+        "words": 37,
+        "module": "Level 3: Enterprise Microservices, Framework Architecture & Production Engineering"
+      },
+      {
+        "id": "java-les-17",
+        "title": "Spring Boot 3 Core: Dependency Injection, IoC Container & Bean Lifecycle",
+        "words": 42,
+        "module": "Level 3: Enterprise Microservices, Framework Architecture & Production Engineering"
+      },
+      {
+        "id": "java-les-18",
+        "title": "Spring Boot REST Architecture & Microservice Endpoints",
+        "words": 43,
+        "module": "Level 3: Enterprise Microservices, Framework Architecture & Production Engineering"
+      },
+      {
+        "id": "java-les-19",
+        "title": "Spring Data JPA, Hibernate ORM & N+1 Query Optimization",
+        "words": 48,
+        "module": "Level 3: Enterprise Microservices, Framework Architecture & Production Engineering"
+      },
+      {
+        "id": "java-les-20",
+        "title": "Transaction Management (@Transactional), ACID & Database Isolation Levels",
+        "words": 37,
+        "module": "Level 3: Enterprise Microservices, Framework Architecture & Production Engineering"
+      },
+      {
+        "id": "java-les-21",
+        "title": "Spring Security 6, JWT Authentication & RBAC Authorization",
+        "words": 33,
+        "module": "Level 3: Enterprise Microservices, Framework Architecture & Production Engineering"
+      },
+      {
+        "id": "java-les-22",
+        "title": "Microservices Architecture, Service Discovery & Circuit Breakers",
+        "words": 41,
+        "module": "Level 3: Enterprise Microservices, Framework Architecture & Production Engineering"
+      },
+      {
+        "id": "java-les-23",
+        "title": "Testing Java Applications: JUnit 5, Mockito & SpringBootTest",
+        "words": 50,
+        "module": "Level 3: Enterprise Microservices, Framework Architecture & Production Engineering"
+      },
+      {
+        "id": "java-les-24",
+        "title": "Observability: Spring Boot Actuator, Micrometer & Prometheus Metrics",
+        "words": 48,
+        "module": "Level 3: Enterprise Microservices, Framework Architecture & Production Engineering"
+      },
+      {
+        "id": "java-les-25",
+        "title": "Containerization, GraalVM Native Images & Kubernetes Deployment",
+        "words": 79,
+        "module": "Level 3: Enterprise Microservices, Framework Architecture & Production Engineering"
       }
     ],
     "javascript": [
