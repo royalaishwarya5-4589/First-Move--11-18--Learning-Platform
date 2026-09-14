@@ -33,8 +33,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "First Move(11~18) | Educational Technology Learning Platform",
-  description: "First Move(11~18) - Learn technology from foundational to advanced mastery through structured learning paths, active practice, and curated resources.",
+  title: "First Move (11–18) | Educational Technology Learning Platform",
+  description: "First Move (11–18) - Learn technology from foundational to advanced mastery through structured learning paths, active practice, and curated resources.",
+  openGraph: {
+    title: "First Move (11–18) | Educational Technology Learning Platform",
+    description: "First Move (11–18) - Learn technology from foundational to advanced mastery through structured learning paths, active practice, and curated resources.",
+    siteName: "First Move (11–18)",
+  },
 };
 
 export default function RootLayout({

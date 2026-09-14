@@ -112,7 +112,7 @@ export function Header() {
           >
             FM
           </span>
-          <span>First Move(11~18)</span>
+          <span>First Move (11–18)</span>
         </Link>
 
         {/* Desktop Navigation */}

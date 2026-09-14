@@ -263,7 +263,7 @@ export function CourseHero({
                   borderRadius: '12px',
                 }}
               >
-                First Move(11~18) Certified
+                First Move (11–18) Certified
               </span>
             </div>
           </div>

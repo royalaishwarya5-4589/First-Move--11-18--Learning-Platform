@@ -16,12 +16,12 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 
   if (!details) {
     return {
-      title: 'Project Not Found | First Move(11~18)',
+      title: 'Project Not Found | First Move (11–18)',
     };
   }
 
   return {
-    title: `${details.project.title} - ${details.path.title} | First Move(11~18)`,
+    title: `${details.project.title} - ${details.path.title} | First Move (11–18)`,
     description: details.project.subtitle,
   };
 }

@@ -233,6 +233,7 @@ function ResultContent() {
   const [selectingDomain, setSelectingDomain] = useState<boolean>(false);
 
   useEffect(() => {
+    document.title = 'Career Compass Results | First Move (11–18)';
     async function loadResults() {
       setLoading(true);
 
@@ -333,7 +334,7 @@ function ResultContent() {
         </div>
 
         <h1 className="hero-title">
-          <span className="compass-icon">🧭</span> Your First Move(11~18) Career Compass
+          <span className="compass-icon">🧭</span> Your First Move (11–18) Career Compass
         </h1>
 
         <p className="hero-subtitle">

@@ -205,7 +205,7 @@ export default function LandingPage() {
         <div className="site-container">
           <div className="section-header center">
             <span className="section-tag">Learning Experience</span>
-            <h2 className="section-title">How You Learn on First Move(11~18)</h2>
+            <h2 className="section-title">How You Learn on First Move (11–18)</h2>
             <p className="section-subtitle">
               Combining clear theory with active coding execution and automated validation.
             </p>
@@ -372,7 +372,7 @@ Total Cost: 59.97
           <span className="section-tag">Copyright-Safe Curation</span>
           <h2 className="section-title">Direct Links to Official Technical Standards</h2>
           <p className="section-subtitle">
-            Rather than copying third-party content, First Move(11~18) references official documentation, PEPs, MDN standards, and RFC specifications.
+            Rather than copying third-party content, First Move (11–18) references official documentation, PEPs, MDN standards, and RFC specifications.
           </p>
         </div>
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, Suspense } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter } from 'next/navigation';
 import { CAREER_COMPASS_QUESTIONS } from '@/content/pre-course-data';
 import { submitPreCourseAssessmentAction } from '@/app/actions/preCourse';
@@ -12,6 +12,10 @@ import { QuizCardSkeleton } from '@/components/Skeleton';
 function QuizContent() {
   const router = useRouter();
   const questions = CAREER_COMPASS_QUESTIONS;
+
+  useEffect(() => {
+    document.title = 'Career Compass Questionnaire | First Move (11–18)';
+  }, []);
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -219,7 +223,7 @@ function QuizContent() {
           color: 'var(--text-main)',
         }}
       >
-        💡 <strong>Remember:</strong> This isn&apos;t a pass/fail exam. It helps First Move(11~18) understand your interests and preferences to recommend the tech domains that match you best.
+        💡 <strong>Remember:</strong> This isn&apos;t a pass/fail exam. It helps First Move (11–18) understand your interests and preferences to recommend the tech domains that match you best.
       </div>
 
       {/* Question Card with Subtle Swapping Animation */}

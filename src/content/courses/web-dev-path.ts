@@ -116,7 +116,7 @@ Prior to HTML5, developers relied almost exclusively on unsemantic \`<div id="he
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LearnTech Article</title>
+    <title>First Move (11–18) Article</title>
 </head>
 <body>
     <header>
@@ -132,7 +132,7 @@ Prior to HTML5, developers relied almost exclusively on unsemantic \`<div id="he
         </article>
     </main>
     <footer>
-        <p>&copy; 2026 LearnTech Inc.</p>
+        <p>&copy; 2026 First Move (11–18) Inc.</p>
     </footer>
 </body>
 </html>`,

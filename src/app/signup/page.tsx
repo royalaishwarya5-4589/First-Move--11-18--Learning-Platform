@@ -16,6 +16,7 @@ export default function SignupPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
+    document.title = 'Create Account | First Move (11–18)';
     if (!isAuthLoading && user) {
       router.replace('/dashboard');
     }
@@ -68,7 +69,7 @@ export default function SignupPage() {
           Create Account
         </h1>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-          Join First Move(11~18) to track your progress and sync achievements.
+          Join First Move (11–18) to track your progress and sync achievements.
         </p>
 
         {error && (

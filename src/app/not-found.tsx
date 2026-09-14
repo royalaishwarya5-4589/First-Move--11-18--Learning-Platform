@@ -4,7 +4,7 @@ import { Card } from '@/components/Card';
 import { Button } from '@/components/Button';
 
 export const metadata = {
-  title: 'Page Not Found | First Move(11~18)',
+  title: 'Page Not Found | First Move (11–18)',
 };
 
 export default function NotFound() {

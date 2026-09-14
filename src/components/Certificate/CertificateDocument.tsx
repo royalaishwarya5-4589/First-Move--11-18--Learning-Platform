@@ -48,7 +48,7 @@ export function CertificateDocument({
 }: CertificateDocumentProps) {
   const formattedSlug = (courseSlug || 'PYTHON').toUpperCase().replace(/[^A-Z0-9]/g, '');
   const sampleCertId = certificateId || (isSample ? `SAMPLE-LT-${formattedSlug}-0001` : `LT-${formattedSlug}-46FF82B5`);
-  const effectiveStudentId = studentId || (isSample ? 'STU-LEARNTECH-SAMPLE' : 'STU-LEARNTECH-001');
+  const effectiveStudentId = studentId || (isSample ? 'STU-FIRSTMOVE-SAMPLE' : 'STU-FIRSTMOVE-001');
 
   // Dynamic path lookup for fallback calculation
   const pathObj = courseSlug ? getPathBySlug(courseSlug) : undefined;
@@ -152,7 +152,7 @@ export function CertificateDocument({
               <path id="seal-text-path-lt-center" d="M 17,42 A 33,33 0 1,1 83,42" fill="none" />
               <text fontSize="7" fontWeight="bold" fill="#ffffff" letterSpacing="0.8" textAnchor="middle">
                 <textPath href="#seal-text-path-lt-center" startOffset="50%">
-                  LEARNTECH ACADEMY
+                  FIRST MOVE (11–18) ACADEMY
                 </textPath>
               </text>
 
@@ -182,14 +182,14 @@ export function CertificateDocument({
               gap: '0.75rem',
             }}
           >
-            {/* Left: Original LearnTech Emblem & Institution Name */}
+            {/* Left: First Move (11–18) Emblem & Institution Name */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="5" y="5" width="90" height="90" rx="12" fill="#0f172a" />
                 <rect x="12" y="12" width="76" height="76" rx="8" stroke="#f59e0b" strokeWidth="2.5" fill="none" />
                 <path d="M50 22L75 36V64L50 78L25 64V36L50 22Z" stroke="#f59e0b" strokeWidth="2" fill="#1e3a8a" />
-                <text x="50" y="57" fontSize="22" fontWeight="900" fill="#ffffff" textAnchor="middle" fontFamily="sans-serif">
-                  LT
+                <text x="50" y="57" fontSize="20" fontWeight="900" fill="#ffffff" textAnchor="middle" fontFamily="sans-serif">
+                  FM
                 </text>
               </svg>
               <div style={{ textAlign: 'left' }}>
@@ -203,7 +203,7 @@ export function CertificateDocument({
                     fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
                   }}
                 >
-                  LEARNTECH ACADEMY
+                  FIRST MOVE (11–18) ACADEMY
                 </div>
                 <div
                   style={{
@@ -216,12 +216,12 @@ export function CertificateDocument({
                     textTransform: 'uppercase',
                   }}
                 >
-                  LEARNTECH INSTITUTE OF COMPUTER SCIENCE & ENGINEERING
+                  FIRST MOVE (11–18) INSTITUTE OF TECHNOLOGY
                 </div>
               </div>
             </div>
 
-            {/* Right: Supporting LearnTech Feature Badges & Credentials Arrangement */}
+            {/* Right: Supporting First Move (11–18) Feature Badges & Credentials Arrangement */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               {/* Badge 1: Verified Credential */}
               <div style={{ textAlign: 'center', padding: '0.2rem 0.4rem', border: '1px solid #cbd5e1', borderRadius: '4px', backgroundColor: '#f8fafc' }}>
@@ -418,7 +418,7 @@ export function CertificateDocument({
             </p>
           </div>
 
-          {/* Centered LearnTech Academy Sub-Branding Pill */}
+          {/* Centered First Move (11–18) Academy Sub-Branding Pill */}
           <div style={{ textAlign: 'center', margin: '0.85rem 0 1rem 0' }}>
             <div
               style={{
@@ -447,7 +447,7 @@ export function CertificateDocument({
                   textTransform: 'uppercase',
                 }}
               >
-                LEARNTECH ACADEMY
+                FIRST MOVE (11–18) ACADEMY
               </span>
             </div>
           </div>
@@ -465,7 +465,7 @@ export function CertificateDocument({
               gap: '1rem',
             }}
           >
-            {/* Column 1 (Left): LearnTech Signature */}
+            {/* Column 1 (Left): First Move (11–18) Signature */}
             <div style={{ textAlign: 'left', minWidth: '190px' }}>
               <div
                 style={{
@@ -495,7 +495,7 @@ export function CertificateDocument({
                   Aishwarya
                 </div>
                 <div style={{ fontSize: '0.7rem', fontWeight: 600, color: '#475569', fontFamily: 'sans-serif' }}>
-                  LearnTech Academic Director
+                  First Move (11–18) Academic Director
                 </div>
               </div>
             </div>
@@ -556,7 +556,7 @@ export function CertificateDocument({
               </div>
             </div>
 
-            {/* Column 3 (Right): Circular LearnTech Internship Grade Badge */}
+            {/* Column 3 (Right): Circular First Move (11–18) Internship Grade Badge */}
             <div style={{ textAlign: 'right', minWidth: '100px' }}>
               <svg width="84" height="84" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="45" cy="45" r="42" fill="#0f172a" stroke="#f59e0b" strokeWidth="2" />

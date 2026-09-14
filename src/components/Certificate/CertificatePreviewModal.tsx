@@ -42,7 +42,7 @@ export function CertificatePreviewModal({
   );
   const [studentId, setStudentId] = useState<string>(() =>
     user?.user_metadata?.student_id ||
-    (user ? `STU-${user.id.slice(0, 8).toUpperCase()}` : 'STU-LEARNTECH-SAMPLE')
+    (user ? `STU-${user.id.slice(0, 8).toUpperCase()}` : 'STU-FIRSTMOVE-SAMPLE')
   );
   const [dynamicTimeframe, setDynamicTimeframe] = useState(() =>
     computeDynamicTimeframe(null, new Date(), getPathBySlug(courseSlug)?.estimatedHours)

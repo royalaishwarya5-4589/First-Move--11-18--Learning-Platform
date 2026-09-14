@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card } from '@/components/Card';
 import { Button } from '@/components/Button';
@@ -8,6 +8,10 @@ import { Badge } from '@/components/Badge';
 
 export default function CareerCompassLandingPage() {
   const router = useRouter();
+
+  useEffect(() => {
+    document.title = 'Career Compass Discovery | First Move (11–18)';
+  }, []);
 
   const handleStartDiscovery = () => {
     router.push('/assessment/quiz');
@@ -58,7 +62,7 @@ export default function CareerCompassLandingPage() {
       <div style={{ textAlign: 'center', maxWidth: '920px', margin: '0 auto clamp(2rem, 4vw, 3.5rem) auto' }}>
         <div style={{ marginBottom: '1.25rem' }}>
           <Badge variant="gold" size="md">
-            <span>🧭</span> First Move(11~18) Career Compass
+            <span>🧭</span> First Move (11–18) Career Compass
           </Badge>
         </div>
 

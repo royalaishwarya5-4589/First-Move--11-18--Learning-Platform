@@ -117,7 +117,7 @@ export async function GET(
   }
 
   // Header Branding
-  const brandText = 'LEARNTECH';
+  const brandText = 'FIRST MOVE (11–18)';
   page.drawText(brandText, {
     x: 50,
     y: height - (isRevoked ? 110 : 70),
@@ -159,7 +159,7 @@ export async function GET(
   });
 
   // Learner Name
-  const learnerName = cert.learner_name || 'LearnTech Graduate';
+  const learnerName = cert.learner_name || 'First Move (11–18) Graduate';
   const nameWidth = fontHelveticaBold.widthOfTextAtSize(learnerName, 32);
   page.drawText(learnerName, {
     x: (width - nameWidth) / 2,
@@ -245,7 +245,7 @@ export async function GET(
     color: rgb(0.06, 0.09, 0.16),
   });
 
-  const boardText = 'First Move Board';
+  const boardText = 'First Move (11–18) Board';
   page.drawText(boardText, {
     x: sigLineX + 40,
     y: 102,
@@ -254,7 +254,7 @@ export async function GET(
     color: rgb(0.12, 0.16, 0.23),
   });
 
-  const authTitle = 'First Move(11~18) Certification Authority';
+  const authTitle = 'First Move (11–18) Certification Authority';
   const authWidth = fontHelveticaBold.widthOfTextAtSize(authTitle, 9);
   page.drawText(authTitle, {
     x: width - 50 - authWidth,

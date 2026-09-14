@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import { ProgressReportClient } from '@/components/Progress/ProgressReportClient';
 
 export const metadata = {
-  title: 'Learner Progress & Performance Report | First Move(11~18)',
+  title: 'Learner Progress & Performance Report | First Move (11–18)',
   description: 'Detailed real-time analytics, course breakdown, assessment history, project tracking, and certification status.',
 };
 

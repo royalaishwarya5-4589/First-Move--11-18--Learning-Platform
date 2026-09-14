@@ -49,7 +49,7 @@ export function AITutorLauncher() {
           }}
         >
           <span>✨</span>
-          <span>Ask First Move(11~18) AI Tutor &amp; Debugger</span>
+          <span>Ask First Move (11–18) AI Tutor &amp; Debugger</span>
         </div>
       )}
 
@@ -110,7 +110,7 @@ export function AITutorLauncher() {
         type="button"
         className="ai-tutor-robot-btn btn-interactive"
         onClick={toggleOpen}
-        aria-label={isOpen ? 'Close AI Tutor Panel' : 'Open First Move(11~18) AI Tutor & Debugger'}
+        aria-label={isOpen ? 'Close AI Tutor Panel' : 'Open First Move (11–18) AI Tutor & Debugger'}
         style={{
           pointerEvents: 'auto',
           background: 'none',

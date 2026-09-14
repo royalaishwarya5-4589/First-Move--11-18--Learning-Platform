@@ -57,7 +57,7 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
   const endDate = (certificate.metadata?.endDate as string) || defaultTimeframe.endDate;
 
   const institutionName = (certificate.metadata?.institutionName as string) || 'Institution Name';
-  const studentId = (certificate.metadata?.studentId as string) || `STU-${certificate.user_id ? certificate.user_id.slice(0, 8).toUpperCase() : 'LEARNTECH'}`;
+  const studentId = (certificate.metadata?.studentId as string) || `STU-${certificate.user_id ? certificate.user_id.slice(0, 8).toUpperCase() : 'FIRSTMOVE'}`;
   const grade = getGradeFromScore(certificate.final_score ?? 85);
 
   useEffect(() => {

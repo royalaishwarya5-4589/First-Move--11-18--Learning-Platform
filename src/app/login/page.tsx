@@ -16,6 +16,7 @@ export default function LoginPage() {
   const isNavigatingRef = React.useRef(false);
 
   useEffect(() => {
+    document.title = 'Sign In | First Move (11–18)';
     if (!isAuthLoading && user && !isNavigatingRef.current) {
       isNavigatingRef.current = true;
       router.replace('/dashboard');

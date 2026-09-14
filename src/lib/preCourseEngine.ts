@@ -182,7 +182,7 @@ export function calculateCareerCompassResult(
 
 /**
  * Connects the student's selected domain (or top recommendation)
- * to actual active LearnTech course content.
+ * to actual active First Move (11–18) course content.
  */
 export function getPersonalizedLearningPath(
   result: CareerCompassResult,

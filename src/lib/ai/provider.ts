@@ -105,7 +105,7 @@ async function callGeminiAPI(payload: AIRequestPayload, apiKey: string, model: s
   });
   rawContents.push({
     role: 'model',
-    parts: [{ text: 'Understood. I am ready to act as the LearnTech AI Tutor & Debugger.' }],
+    parts: [{ text: 'Understood. I am ready to act as the First Move (11–18) AI Tutor & Debugger.' }],
   });
 
   if (payload.history && payload.history.length > 0) {
@@ -287,7 +287,7 @@ function generateFallbackResponse(
 
   // 1. Casual Greetings & Conversational Inputs
   if (/^(hi|hello|hey|greetings|good morning|good afternoon|good evening|who are you|what can you do)\b/i.test(lowerMsg)) {
-    text = `Hello! 👋 I am your LearnTech AI Tutor & Debugger. Ask me any programming question, paste code to debug errors, or request step-by-step walkthroughs!`;
+    text = `Hello! 👋 I am your First Move (11–18) AI Tutor & Debugger. Ask me any programming question, paste code to debug errors, or request step-by-step walkthroughs!`;
   }
   else if (/^(thanks|thank you|thx|awesome|great|got it|okay|ok)\b/i.test(lowerMsg)) {
     text = `You're very welcome! Let me know whenever you need help debugging code or understanding concepts.`;
@@ -329,7 +329,7 @@ function generateFallbackResponse(
   }
   else if (lowerMsg.includes('what is a string') || lowerMsg.includes('what is string')) {
     text = `A **string** is a sequence of characters used to represent text in programming.\n\n` +
-      `**Example**:\n\`\`\`python\ntext = "Hello LearnTech"\nprint(text)\n\`\`\`\n\n` +
+      `**Example**:\n\`\`\`python\ntext = "Hello First Move (11–18)"\nprint(text)\n\`\`\`\n\n` +
       `**Why it works**: Strings are enclosed in single (\`'\`) or double (\`"\`) quotes so the language treats the contents as literal text.`;
   }
 

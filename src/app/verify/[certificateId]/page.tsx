@@ -15,12 +15,12 @@ export async function generateMetadata({ params }: VerifyPageProps) {
   const cert = await verifyCertificatePublic(certificateId);
 
   if (!cert) {
-    return { title: 'Certificate Not Found | First Move(11~18) Verification' };
+    return { title: 'Certificate Not Found | First Move (11–18) Verification' };
   }
 
   return {
-    title: `Verify ${cert.certificate_id} — ${cert.learner_name} | First Move(11~18)`,
-    description: `Official First Move(11~18) Certificate of Completion verification record for ${cert.learner_name} in ${cert.course_title}.`,
+    title: `Verify ${cert.certificate_id} — ${cert.learner_name} | First Move (11–18)`,
+    description: `Official First Move (11–18) Certificate of Completion verification record for ${cert.learner_name} in ${cert.course_title}.`,
   };
 }
 
@@ -42,7 +42,7 @@ export default async function VerifyCertificatePage({ params }: VerifyPageProps)
             Certificate Not Found
           </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '1rem', marginBottom: '2rem', lineHeight: 1.6 }}>
-            No valid First Move(11~18) certificate record exists for ID or verification hash <code style={{ backgroundColor: 'var(--bg-app)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>{certificateId}</code>.
+            No valid First Move (11–18) certificate record exists for ID or verification hash <code style={{ backgroundColor: 'var(--bg-app)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>{certificateId}</code>.
           </p>
           <Button href="/paths" variant="primary">
             Explore Course Catalog →
@@ -120,7 +120,7 @@ export default async function VerifyCertificatePage({ params }: VerifyPageProps)
 
           <div>
             <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 700, display: 'block' }}>ISSUING AUTHORITY</span>
-            <span style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--text-main)' }}>First Move(11~18) Certification Authority</span>
+            <span style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--text-main)' }}>First Move (11–18) Certification Authority</span>
           </div>
         </div>
 
