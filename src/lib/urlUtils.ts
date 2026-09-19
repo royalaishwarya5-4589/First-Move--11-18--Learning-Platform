@@ -11,7 +11,7 @@ export function getSiteBaseUrl(): string {
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`;
   }
-  return 'http://localhost:3000';
+  return 'https://first-move-11-18.vercel.app';
 }
 
 export function getCertificateVerifyUrl(certificateId: string): string {

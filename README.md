@@ -18,6 +18,10 @@
   <img src="https://img.shields.io/badge/Deployed%20on-Vercel-black?style=flat&logo=vercel" alt="Vercel" />
 </p>
 
+<p align="center">
+  <a href="https://first-move-11-18.vercel.app"><strong>🔗 Live Deployment: https://first-move-11-18.vercel.app</strong></a>
+</p>
+
 ---
 
 ## 🌟 About First Move (11~18)
@@ -38,8 +42,8 @@
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/royalaishwarya5-4589/LearnTech-_-Educational-Technology-Learning-Platform.git
-cd "LearnTech-_-Educational-Technology-Learning-Platform"
+git clone https://github.com/royalaishwarya5-4589/first-move-11-18.git
+cd "first-move-11-18"
 
 # 2. Install dependencies
 npm install
