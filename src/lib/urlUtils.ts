@@ -6,12 +6,6 @@ export function getSiteBaseUrl(): string {
   if (envUrl && !envUrl.includes('localhost')) {
     return envUrl.replace(/\/$/, '');
   }
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
-    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
-  }
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`;
-  }
   if (process.env.NODE_ENV === 'development' && envUrl) {
     return envUrl.replace(/\/$/, '');
   }
