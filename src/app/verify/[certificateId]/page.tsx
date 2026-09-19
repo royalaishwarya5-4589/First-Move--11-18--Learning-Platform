@@ -15,12 +15,30 @@ export async function generateMetadata({ params }: VerifyPageProps) {
   const cert = await verifyCertificatePublic(certificateId);
 
   if (!cert) {
-    return { title: 'Certificate Not Found | First Move (11~18) Verification' };
+    return {
+      title: 'Certificate Not Found | First Move (11~18) Verification',
+      robots: { index: false, follow: false },
+    };
   }
+
+  const canonicalUrl = `/verify/${certificateId}`;
 
   return {
     title: `Verify ${cert.certificate_id} — ${cert.learner_name} | First Move (11~18)`,
     description: `Official First Move (11~18) Certificate of Completion verification record for ${cert.learner_name} in ${cert.course_title}.`,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: `Verify ${cert.certificate_id} — ${cert.learner_name} | First Move (11~18)`,
+      description: `Official First Move (11~18) Certificate of Completion verification record for ${cert.learner_name} in ${cert.course_title}.`,
+      url: canonicalUrl,
+    },
+    twitter: {
+      card: 'summary',
+      title: `Verify ${cert.certificate_id} — ${cert.learner_name} | First Move (11~18)`,
+      description: `Official First Move (11~18) Certificate of Completion verification record for ${cert.learner_name}.`,
+    },
   };
 }
 

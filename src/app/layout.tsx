@@ -11,6 +11,7 @@ import { AITutorLauncher } from "@/components/AITutor/AITutorLauncher";
 import { AITutorPanel } from "@/components/AITutor/AITutorPanel";
 
 import { NavigationProgress } from "@/components/NavigationProgress";
+import { getSiteBaseUrl } from "@/lib/urlUtils";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,7 +33,7 @@ export const viewport: Viewport = {
   ],
 };
 
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://first-move-11-18.vercel.app'));
+const siteUrl = getSiteBaseUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -65,6 +66,20 @@ export const metadata: Metadata = {
       { url: '/images/firstmove-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     title: "First Move (11~18) | CODE • LEARN • BUILD",
     description: "First Move (11~18) — Master Software Engineering, Computer Science, and AI through structured roadmaps, browser-based coding, and cryptographically verified certificates.",
@@ -89,6 +104,34 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "@id": `${siteUrl}#organization`,
+  name: "First Move (11~18)",
+  alternateName: ["First Move", "First Move 11–18"],
+  url: siteUrl,
+  logo: {
+    "@type": "ImageObject",
+    url: `${siteUrl}/images/firstmove-logo.png`,
+    caption: "First Move (11~18) - CODE • LEARN • BUILD",
+  },
+  slogan: "CODE • LEARN • BUILD",
+  description: "Next-generation educational technology learning ecosystem guiding learners from absolute beginner foundations to industry-level mastery.",
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}#website`,
+  url: siteUrl,
+  name: "First Move (11~18)",
+  description: "First Move (11~18) — CODE • LEARN • BUILD. Master Software Engineering, Computer Science, and AI through structured roadmaps, interactive coding, and verified certificates.",
+  publisher: {
+    "@id": `${siteUrl}#organization`,
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -97,6 +140,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <Script
           id="theme-initializer"
           strategy="beforeInteractive"

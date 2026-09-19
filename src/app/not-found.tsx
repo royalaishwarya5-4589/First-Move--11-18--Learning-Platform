@@ -3,8 +3,14 @@ import Link from 'next/link';
 import { Card } from '@/components/Card';
 import { Button } from '@/components/Button';
 
-export const metadata = {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'Page Not Found | First Move (11~18)',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function NotFound() {

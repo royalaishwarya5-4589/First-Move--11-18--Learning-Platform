@@ -1,7 +1,8 @@
 import React from 'react';
-import { getAssessmentBySlug } from '@/content/assessments-data';
-import { AssessmentRunnerClient } from '@/components/Assessment/AssessmentRunnerClient';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { sampleAssessments, getAssessmentBySlug } from '@/content/assessments-data';
+import { AssessmentRunnerClient } from '@/components/Assessment/AssessmentRunnerClient';
 
 interface AssessmentPageProps {
   params: Promise<{
@@ -10,17 +11,42 @@ interface AssessmentPageProps {
   }>;
 }
 
-export async function generateMetadata({ params }: AssessmentPageProps) {
-  const { assessmentSlug } = await params;
+export function generateStaticParams() {
+  return sampleAssessments.map((a) => ({
+    pathSlug: a.pathSlug,
+    assessmentSlug: a.slug,
+  }));
+}
+
+export async function generateMetadata({ params }: AssessmentPageProps): Promise<Metadata> {
+  const { pathSlug, assessmentSlug } = await params;
   const assessment = getAssessmentBySlug(assessmentSlug);
 
   if (!assessment) {
-    return { title: 'Assessment Not Found | First Move (11~18)' };
+    return {
+      title: 'Assessment Not Found | First Move (11~18)',
+      robots: { index: false, follow: false },
+    };
   }
+
+  const canonicalUrl = `/paths/${pathSlug}/assessments/${assessmentSlug}`;
 
   return {
     title: `${assessment.title} | First Move (11~18)`,
     description: assessment.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: `${assessment.title} | First Move (11~18)`,
+      description: assessment.description,
+      url: canonicalUrl,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${assessment.title} | First Move (11~18)`,
+      description: assessment.description,
+    },
   };
 }
 
