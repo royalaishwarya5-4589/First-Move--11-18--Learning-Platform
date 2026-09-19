@@ -1283,7 +1283,7 @@ public class Main {
               title: 'Example: Inspecting Maven Coordinates',
               code: `public class Main {
     public static void main(String[] args) {
-        String groupId = "com.learntech.enterprise";
+        String groupId = "com.firstmove.enterprise";
         String artifactId = "order-service";
         String version = "1.0.0-SNAPSHOT";
 
@@ -1318,12 +1318,12 @@ public class Main {
           ],
           exercise: {
             id: 'jex-16mb',
-            instructions: 'Print `"Build Target: com.learntech.enterprise:order-service:1.0.0-SNAPSHOT"` to standard stdout.',
+            instructions: 'Print `"Build Target: com.firstmove.enterprise:order-service:1.0.0-SNAPSHOT"` to standard stdout.',
             initialCode: 'public class Main {\n    public static void main(String[] args) {\n        // Maven GAV print\n    }\n}',
-            solutionCode: 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Build Target: com.learntech.enterprise:order-service:1.0.0-SNAPSHOT");\n    }\n}',
-            hints: ['Print Build Target: com.learntech.enterprise:order-service:1.0.0-SNAPSHOT to stdout.'],
+            solutionCode: 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Build Target: com.firstmove.enterprise:order-service:1.0.0-SNAPSHOT");\n    }\n}',
+            hints: ['Print Build Target: com.firstmove.enterprise:order-service:1.0.0-SNAPSHOT to stdout.'],
             validationType: 'stdout',
-            testCases: [{ id: 'jtc16mb', description: 'Outputs Maven GAV build target', expectedOutput: 'Build Target: com.learntech.enterprise:order-service:1.0.0-SNAPSHOT' }]
+            testCases: [{ id: 'jtc16mb', description: 'Outputs Maven GAV build target', expectedOutput: 'Build Target: com.firstmove.enterprise:order-service:1.0.0-SNAPSHOT' }]
           },
           references: [],
           completionCriteria: { requiresConceptsRead: true, requiresQuizPassed: true, requiresExercisePassed: true }

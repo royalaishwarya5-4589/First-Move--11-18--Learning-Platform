@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: PathPageProps) {
   }
 
   return {
-    title: `${path.title} | First Move (11–18)`,
+    title: `${path.title} | First Move (11~18)`,
     description: path.description,
   };
 }

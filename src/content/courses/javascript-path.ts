@@ -447,12 +447,12 @@ const handleSearchInput = debounce((query) => {
           ],
           exercise: {
             id: 'jsex-6',
-            instructions: 'Output `"API Request Sent for Query: learntech"` to standard console.log.',
+            instructions: 'Output `"API Request Sent for Query: firstmove"` to standard console.log.',
             initialCode: '// Debounce output print\n',
-            solutionCode: 'console.log("API Request Sent for Query: learntech");',
-            hints: ['console.log("API Request Sent for Query: learntech");'],
+            solutionCode: 'console.log("API Request Sent for Query: firstmove");',
+            hints: ['console.log("API Request Sent for Query: firstmove");'],
             validationType: 'stdout',
-            testCases: [{ id: 'jstc6', description: 'Outputs expected debounced query', expectedOutput: 'API Request Sent for Query: learntech' }]
+            testCases: [{ id: 'jstc6', description: 'Outputs expected debounced query', expectedOutput: 'API Request Sent for Query: firstmove' }]
           },
           references: [],
           completionCriteria: { requiresConceptsRead: true, requiresQuizPassed: true, requiresExercisePassed: true }

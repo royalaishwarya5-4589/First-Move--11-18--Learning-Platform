@@ -105,7 +105,7 @@ export function CourseCareerCompassWidget({ careerMeta }: CourseCareerCompassWid
                   color: 'var(--accent-gold-deep, #9F7A16)',
                 }}
               >
-                First Move (11–18) Career Compass Intelligence
+                First Move (11~18) Career Compass Intelligence
               </span>
               <Badge variant={isStrongMatch ? 'active' : 'roadmap'}>
                 {isStrongMatch ? '⭐ Recommended For You' : 'Supporting Foundation Course'}

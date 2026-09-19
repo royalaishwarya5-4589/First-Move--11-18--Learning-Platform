@@ -203,7 +203,7 @@ export function CertificateDocument({
                     fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
                   }}
                 >
-                  FIRST MOVE (11–18) ACADEMY
+                  FIRST MOVE (11~18) ACADEMY
                 </div>
                 <div
                   style={{
@@ -216,7 +216,7 @@ export function CertificateDocument({
                     textTransform: 'uppercase',
                   }}
                 >
-                  FIRST MOVE (11–18) INSTITUTE OF TECHNOLOGY
+                  FIRST MOVE (11~18) INSTITUTE OF TECHNOLOGY
                 </div>
               </div>
             </div>
@@ -447,7 +447,7 @@ export function CertificateDocument({
                   textTransform: 'uppercase',
                 }}
               >
-                FIRST MOVE (11–18) ACADEMY
+                FIRST MOVE (11~18) ACADEMY
               </span>
             </div>
           </div>
@@ -495,7 +495,7 @@ export function CertificateDocument({
                   Aishwarya
                 </div>
                 <div style={{ fontSize: '0.7rem', fontWeight: 600, color: '#475569', fontFamily: 'sans-serif' }}>
-                  First Move (11–18) Academic Director
+                  First Move (11~18) Academic Director
                 </div>
               </div>
             </div>

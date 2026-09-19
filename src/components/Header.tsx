@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
-import { Badge } from './Badge';
 import { UserMenu } from './Auth/UserMenu';
 import { MegaMenu } from './Navigation/MegaMenu';
 
@@ -96,6 +95,7 @@ export function Header() {
             lineHeight: 0,
             borderRadius: '8px',
           }}
+          aria-label="First Move (11~18) Home"
         >
           <Image
             src="/images/firstmove-logo.png"
@@ -108,9 +108,10 @@ export function Header() {
               width: 'auto',
               maxHeight: '44px',
               objectFit: 'contain',
-              borderRadius: '6px',
+              borderRadius: '7px',
               background: '#FFFFFF',
-              padding: '2px 4px',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06)',
+              padding: '2px 5px',
               display: 'block',
             }}
           />

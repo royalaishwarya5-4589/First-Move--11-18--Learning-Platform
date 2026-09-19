@@ -15,7 +15,7 @@ export default function LearningPathPage() {
   const [learningPath, setLearningPath] = useState<PersonalizedLearningPath | null>(null);
 
   useEffect(() => {
-    document.title = 'Personalized Learning Track | First Move (11–18)';
+    document.title = 'Personalized Learning Track | First Move (11~18)';
     async function loadPath() {
       setLoading(true);
 

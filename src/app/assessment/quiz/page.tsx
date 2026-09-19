@@ -14,7 +14,7 @@ function QuizContent() {
   const questions = CAREER_COMPASS_QUESTIONS;
 
   useEffect(() => {
-    document.title = 'Career Compass Questionnaire | First Move (11–18)';
+    document.title = 'Career Compass Questionnaire | First Move (11~18)';
   }, []);
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);

@@ -37,6 +37,7 @@ export function Footer() {
                     objectFit: 'contain',
                     borderRadius: '8px',
                     background: '#FFFFFF',
+                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06)',
                     padding: '3px 6px',
                     display: 'block',
                   }}
@@ -102,7 +103,7 @@ export function Footer() {
             color: 'var(--text-muted)'
           }}
         >
-          <p>© {new Date().getFullYear()} First Move (11–18) Educational Platform. Built with Next.js App Router.</p>
+          <p>© {new Date().getFullYear()} First Move (11~18) • CODE • LEARN • BUILD. Built with Next.js App Router.</p>
           <p>Readability & Accessibility First</p>
         </div>
       </div>

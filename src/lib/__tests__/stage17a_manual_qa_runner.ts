@@ -37,12 +37,12 @@ export async function runStage17AManualQARunner() {
   } else {
     const homeHtml = await homeRes.text();
     const homeText = cleanHtmlToText(homeHtml);
-    if (!homeText.includes('First Move') && !homeText.includes('First Move (11–18)')) {
+    if (!homeText.includes('First Move') && !homeText.includes('First Move (11~18)') && !homeText.includes('First Move (11–18)')) {
       bugsFound.push({
         bugNo: bugsFound.length + 1,
         page: '/',
         severity: 'MEDIUM',
-        expected: 'Homepage header renders First Move (11–18) branding',
+        expected: 'Homepage header renders First Move (11~18) branding',
         actual: 'Branding missing from rendered text',
         steps: 'Open http://localhost:3000/ and inspect DOM header'
       });

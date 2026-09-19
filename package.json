@@ -1,6 +1,7 @@
 {
-  "name": "tech-learning-platform",
-  "version": "0.1.0",
+  "name": "first-move-11-18",
+  "version": "1.0.0",
+  "description": "First Move (11~18) — CODE • LEARN • BUILD. Educational Technology Learning Platform.",
   "private": true,
   "scripts": {
     "dev": "next dev",

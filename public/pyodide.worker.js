@@ -1,4 +1,4 @@
-/* Pyodide Classic Web Worker for First Move (11–18) Platform */
+/* Pyodide Classic Web Worker for First Move (11~18) Platform */
 
 let pyodide = null;
 let isReady = false;

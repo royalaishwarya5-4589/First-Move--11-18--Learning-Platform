@@ -117,7 +117,7 @@ export async function GET(
   }
 
   // Header Branding
-  const brandText = 'FIRST MOVE (11–18)';
+  const brandText = 'FIRST MOVE (11~18)';
   page.drawText(brandText, {
     x: 50,
     y: height - (isRevoked ? 110 : 70),

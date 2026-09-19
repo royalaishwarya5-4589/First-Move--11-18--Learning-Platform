@@ -21,15 +21,17 @@ export default function LandingPage() {
       >
         <div className="site-container">
           <div style={{ maxWidth: '1020px', margin: '0 auto', textAlign: 'center' }}>
-            <Badge variant="gold" size="md">
-              ✨ Premium Engineering &amp; AI Learning Ecosystem
-            </Badge>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+              <Badge variant="gold" size="md">
+                ⚡ FIRST MOVE (11~18) • CODE • LEARN • BUILD
+              </Badge>
+            </div>
             <h1
               style={{
                 fontSize: 'clamp(2.2rem, 4vw + 0.5rem, 3.4rem)',
                 fontWeight: 850,
                 lineHeight: 1.18,
-                marginTop: '1.25rem',
+                marginTop: '0.75rem',
                 marginBottom: '1.25rem',
                 color: 'var(--text-main)',
                 letterSpacing: '-0.025em',
@@ -47,7 +49,7 @@ export default function LandingPage() {
                 margin: '0 auto 2.25rem auto',
               }}
             >
-              Unsure which domain suits you best? Take the <strong>Career Compass</strong> discovery, or follow structured, level-based roadmaps across Programming, Computer Science, Web Development, and AI.
+              Welcome to <strong>First Move (11~18)</strong> — the hands-on engineering ecosystem built for curious minds and future builders. Take the <strong>Career Compass</strong> discovery, or follow structured, level-based roadmaps across Python, Web Development, Computer Science, and AI.
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Button href="/assessment" size="lg" variant="primary">
@@ -205,7 +207,7 @@ export default function LandingPage() {
         <div className="site-container">
           <div className="section-header center">
             <span className="section-tag">Learning Experience</span>
-            <h2 className="section-title">How You Learn on First Move (11–18)</h2>
+            <h2 className="section-title">How You Learn on First Move (11~18)</h2>
             <p className="section-subtitle">
               Combining clear theory with active coding execution and automated validation.
             </p>
@@ -372,7 +374,7 @@ Total Cost: 59.97
           <span className="section-tag">Copyright-Safe Curation</span>
           <h2 className="section-title">Direct Links to Official Technical Standards</h2>
           <p className="section-subtitle">
-            Rather than copying third-party content, First Move (11–18) references official documentation, PEPs, MDN standards, and RFC specifications.
+            Rather than copying third-party content, First Move (11~18) references official documentation, PEPs, MDN standards, and RFC specifications.
           </p>
         </div>
 

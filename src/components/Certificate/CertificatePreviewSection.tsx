@@ -65,7 +65,7 @@ export function CertificatePreviewSection({
                 {certificateTitle}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: 0, lineHeight: 1.5 }}>
-                Complete this learning path to earn your First Move (11–18) certificate.
+                Complete this learning path to earn your First Move (11~18) certificate.
               </p>
             </div>
           </div>

@@ -4,7 +4,7 @@ import { Path } from '@/types/content';
 import { CoursePathClient } from '@/components/Path/CoursePathClient';
 
 export const metadata = {
-  title: 'Python Developer Mastery Path | First Move (11–18)',
+  title: 'Python Developer Mastery Path | First Move (11~18)',
   description: 'Structured Python roadmap from foundational fundamentals to advanced object-oriented design, portfolio projects, and technical interview mastery.',
 };
 

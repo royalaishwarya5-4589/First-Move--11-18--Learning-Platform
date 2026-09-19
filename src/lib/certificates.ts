@@ -37,7 +37,7 @@ export function generateVerificationHash(
   pathSlug: string,
   timestamp: string
 ): string {
-  const secret = process.env.CERTIFICATE_VERIFY_SECRET || 'LEARNTECH_VERIFY_SECRET_V1';
+  const secret = process.env.CERTIFICATE_VERIFY_SECRET || 'FIRSTMOVE_VERIFY_SECRET_V1';
   const payload = `${certificateId}:${userId}:${pathSlug}:${timestamp}:${secret}`;
   return crypto.createHash('sha256').update(payload).digest('hex');
 }

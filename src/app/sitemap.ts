@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next';
 import { pythonPath } from '@/content/python-path';
+import { getSiteBaseUrl } from '@/lib/urlUtils';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://learntech.app';
+  const baseUrl = getSiteBaseUrl();
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {

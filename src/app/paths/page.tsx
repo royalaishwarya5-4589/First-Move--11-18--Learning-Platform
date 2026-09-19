@@ -3,7 +3,7 @@ import { getAllCategories, getAllPaths } from '@/content';
 import { PathCatalogClient } from '@/components/Path/PathCatalogClient';
 
 export const metadata = {
-  title: 'Multi-Course Catalog | First Move (11–18)',
+  title: 'Multi-Course Catalog | First Move (11~18)',
   description: 'Explore structured technology learning paths across Programming, Computer Science, Web Development, AI, Security, and Career Skills.',
 };
 

@@ -172,7 +172,7 @@ export function AITutorPanel() {
           <RobotMascot state={robotState} size={36} />
           <div>
             <div style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text-main, #1C1C1C)' }}>
-              First Move (11–18) AI Tutor & Debugger
+              First Move (11~18) AI Tutor & Debugger
             </div>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted, #6B6B6B)', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
               <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#10b981' }} />
@@ -241,7 +241,7 @@ export function AITutorPanel() {
                 fontSize: '0.85rem',
               }}
             >
-              <option value="auto">✨ Auto / First Move (11–18) Engine (Free Built-in)</option>
+              <option value="auto">✨ Auto / First Move (11~18) Engine (Free Built-in)</option>
               <option value="gemini">Google Gemini 1.5 Flash</option>
               <option value="openai">OpenAI GPT-4o mini</option>
               <option value="groq">Groq Llama 3</option>

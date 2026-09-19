@@ -10,7 +10,7 @@ export default function CareerCompassLandingPage() {
   const router = useRouter();
 
   useEffect(() => {
-    document.title = 'Career Compass Discovery | First Move (11–18)';
+    document.title = 'Career Compass Discovery | First Move (11~18)';
   }, []);
 
   const handleStartDiscovery = () => {

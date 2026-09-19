@@ -40,7 +40,7 @@ export function buildSystemPrompt(options: BuildPromptOptions): string {
     isVoiceMode = false,
   } = options;
 
-  return `You are the First Move (11–18) AI Tutor & Intelligent Debugger, a friendly, clear, and expert coding instructor built directly into the First Move (11–18) learning platform.
+  return `You are the First Move (11~18) AI Tutor & Intelligent Debugger, a friendly, clear, and expert coding instructor built directly into the First Move (11~18) learning platform.
 
 ==================================================
 MISSION & DIRECTIVES

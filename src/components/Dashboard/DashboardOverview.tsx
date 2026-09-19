@@ -28,7 +28,7 @@ export function DashboardOverview({ stats }: DashboardOverviewProps) {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
           <div>
             <h2 style={{ fontSize: '1.45rem', fontWeight: 850, color: 'var(--text-main)', marginBottom: '0.35rem', letterSpacing: '-0.015em' }}>
-              Welcome back to First Move (11–18)!
+              Welcome back to First Move (11~18)!
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: 0 }}>
               Overall Mastery: <strong style={{ color: 'var(--accent-gold-deep)' }}>{stats.mastery.overallPercentage}%</strong> • Streak: <strong style={{ color: 'var(--accent-gold-deep)' }}>🔥 {stats.currentStreakDays} day{stats.currentStreakDays === 1 ? '' : 's'}</strong>

@@ -13,7 +13,7 @@ import { AssessmentOverview } from '@/components/Dashboard/AssessmentOverview';
 import { CertificateWall } from '@/components/Certificate/CertificateWall';
 
 export const metadata = {
-  title: 'Learner Dashboard | First Move (11–18)',
+  title: 'Learner Dashboard | First Move (11~18)',
   description: 'Track your overall technology learning progress, mastery, projects, streak, and achievements.',
 };
 
@@ -35,7 +35,7 @@ export default async function DashboardPage() {
           </span>
         </div>
         <h1 style={{ fontSize: 'clamp(1.85rem, 3vw + 0.5rem, 2.6rem)', fontWeight: 900, color: 'var(--text-main)', marginBottom: '0.45rem', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
-          Welcome back to First Move (11–18)
+          Welcome back to First Move (11~18)
         </h1>
         <p style={{ color: 'var(--text-muted)', fontSize: 'clamp(1rem, 0.4vw + 0.9rem, 1.15rem)', margin: 0, maxWidth: '850px', lineHeight: 1.65 }}>
           Track your Career Compass discovery, progress through structured level milestones, and build production-grade projects.

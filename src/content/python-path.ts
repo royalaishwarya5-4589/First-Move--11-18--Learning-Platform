@@ -49,7 +49,7 @@ export const pythonPath: Path = {
             "id": "ex_py-les-0-1",
             "title": "Practical Code Demonstration",
             "description": "Executable code walkthrough for What Programming Is, CPU Architecture & Python Execution Model.",
-            "code": "print(\"Welcome to First Move (11–18)\")\nprint(\"Python Mastery\")",
+            "code": "print(\"Welcome to First Move (11~18)\")\nprint(\"Python Mastery\")",
             "explanation": "Demonstrates runtime behavior and output for What Programming Is, CPU Architecture & Python Execution Model.",
             "language": "python"
           }
@@ -99,9 +99,9 @@ export const pythonPath: Path = {
         ],
         "exercise": {
           "id": "ex_ex_py-les-0-1",
-          "instructions": "Print \"Welcome to First Move (11–18)\" on line 1 and \"Python Mastery\" on line 2.",
+          "instructions": "Print \"Welcome to First Move (11~18)\" on line 1 and \"Python Mastery\" on line 2.",
           "initialCode": "# Write your code below\n",
-          "solutionCode": "print(\"Welcome to First Move (11–18)\")\nprint(\"Python Mastery\")",
+          "solutionCode": "print(\"Welcome to First Move (11~18)\")\nprint(\"Python Mastery\")",
           "hints": [
             "Ensure exact output strings match test cases."
           ],
@@ -110,7 +110,7 @@ export const pythonPath: Path = {
             {
               "id": "tc_py-les-0-1",
               "description": "Validates expected stdout output",
-              "expectedOutput": "Welcome to First Move (11–18)\nPython Mastery"
+              "expectedOutput": "Welcome to First Move (11~18)\nPython Mastery"
             }
           ]
         },

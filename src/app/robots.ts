@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
+import { getSiteBaseUrl } from '@/lib/urlUtils';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://learntech.app';
+  const baseUrl = getSiteBaseUrl();
 
   return {
     rules: {

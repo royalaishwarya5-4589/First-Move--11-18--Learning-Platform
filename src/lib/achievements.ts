@@ -5,7 +5,7 @@ export const ALL_ACHIEVEMENTS: Omit<Achievement, 'isUnlocked' | 'unlockedAt'>[] 
   {
     id: 'first-lesson',
     title: 'First Step',
-    description: 'Completed your first interactive lesson on First Move (11–18).',
+    description: 'Completed your first interactive lesson on First Move (11~18).',
     icon: '🚀',
     category: 'lesson',
   },

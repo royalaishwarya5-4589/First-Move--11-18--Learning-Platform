@@ -8,7 +8,7 @@ export interface CourseImageSet {
 
 /**
  * Centralized Course Image Registry
- * Every course in First Move (11–18) has its own UNIQUE, subject-authentic, high-resolution photography.
+ * Every course in First Move (11~18) has its own UNIQUE, subject-authentic, high-resolution photography.
  * No two courses share the same image.
  */
 export const COURSE_IMAGES: Record<string, CourseImageSet> = {
@@ -218,7 +218,7 @@ const DEFAULT_FALLBACK_IMAGE: CourseImageSet = {
   courseImage: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
   thumbnailImage: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80',
   bannerImage: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80',
-  altText: 'First Move (11–18) Professional Technology Course',
+  altText: 'First Move (11~18) Professional Technology Course',
   accentColor: '#C9A227',
 };
 

@@ -233,7 +233,7 @@ function ResultContent() {
   const [selectingDomain, setSelectingDomain] = useState<boolean>(false);
 
   useEffect(() => {
-    document.title = 'Career Compass Results | First Move (11–18)';
+    document.title = 'Career Compass Results | First Move (11~18)';
     async function loadResults() {
       setLoading(true);
 
