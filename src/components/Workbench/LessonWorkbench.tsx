@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Path, Module, Lesson } from '@/types/content';
-import { usePythonRunner } from '@/hooks/usePythonRunner';
+import { useCodeRunner } from '@/hooks/useCodeRunner';
 import { useProgress } from '@/hooks/useProgress';
 import { LessonNavigation } from './LessonNavigation';
 import { LessonContentPanel } from './LessonContentPanel';
@@ -36,16 +36,44 @@ export function LessonWorkbench({
   lessonIndex,
   totalLessons,
 }: LessonWorkbenchProps) {
-  const { isReady, isRunning, logs, clearLogs, runCode, validateExercise } = usePythonRunner();
+  const language =
+    lesson.exercise?.language ||
+    (path.slug === 'python'
+      ? 'python'
+      : path.slug === 'javascript' || path.slug === 'react'
+      ? 'javascript'
+      : path.slug === 'html-css'
+      ? 'html'
+      : path.slug === 'dbms'
+      ? 'sql'
+      : path.slug === 'java'
+      ? 'java'
+      : 'python');
+
+  const { isReady, isRunning, logs, clearLogs, runCode, validateExercise, activeEngine } = useCodeRunner({
+    language,
+    pathSlug: path.slug,
+  });
   const { progress, isSyncing, syncSource, saveProgressState, submitExercise } = useProgress(path.slug, lesson.slug);
 
   // Tab & UI States
   const [activeTab, setActiveTab] = useState<'concepts' | 'examples' | 'engineering' | 'quiz' | 'exercise'>('concepts');
   const [quizScore, setQuizScore] = useState<{ total: number; correct: number; passed: boolean } | null>(null);
 
+  const defaultInitialCode =
+    language === 'python'
+      ? 'print("Hello, Python!")\n'
+      : language === 'javascript'
+      ? 'console.log("Hello, World!");\n'
+      : language === 'html'
+      ? '<!DOCTYPE html>\n<html>\n  <body>\n    <h1>Hello Web</h1>\n  </body>\n</html>\n'
+      : language === 'sql'
+      ? 'SELECT * FROM users;\n'
+      : '// Write code below\n';
+
   // Editor & Validation States
   const [userCode, setUserCode] = useState<string | null>(null);
-  const code = userCode ?? progress.last_code_submitted ?? lesson.exercise?.initialCode ?? 'print("Hello, Python!")\n';
+  const code = userCode ?? progress.last_code_submitted ?? lesson.exercise?.initialCode ?? defaultInitialCode;
   const setCode = (val: string) => setUserCode(val);
   const [validationResult, setValidationResult] = useState<ValidationResult | null>(null);
 
@@ -102,11 +130,9 @@ export function LessonWorkbench({
   };
 
   const handleResetCode = () => {
-    if (lesson.exercise?.initialCode) {
-      setCode(lesson.exercise.initialCode);
-    } else {
-      setCode('print("Hello, Python!")\n');
-    }
+    setCode(lesson.exercise?.initialCode || defaultInitialCode);
+    clearLogs();
+    setValidationResult(null);
   };
 
   return (
@@ -295,19 +321,15 @@ export function LessonWorkbench({
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ fontSize: '1rem', lineHeight: 1 }}>{activeEngine.icon}</span>
                 <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)' }}>
-                  {path.slug === 'python'
-                    ? 'Python 3 (Pyodide Wasm Engine)'
-                    : path.slug === 'javascript'
-                    ? 'JavaScript ES6+ (Web Engine)'
-                    : path.slug === 'html-css'
-                    ? 'HTML5 & CSS3 Engine'
-                    : path.slug === 'dbms'
-                    ? 'SQL Relational DB Engine'
-                    : `${path.title} Engine`}
+                  {activeEngine.name}
+                </span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                  ({activeEngine.version})
                 </span>
                 {!isReady && (
-                  <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--accent-warning, #f59e0b)' }}>
                     (Loading Runtime...)
                   </span>
                 )}
@@ -333,20 +355,7 @@ export function LessonWorkbench({
               <CodeEditor
                 value={code}
                 onChange={setCode}
-                language={
-                  lesson.exercise?.language ||
-                  (path.slug === 'python'
-                    ? 'python'
-                    : path.slug === 'javascript' || path.slug === 'react'
-                    ? 'javascript'
-                    : path.slug === 'html-css'
-                    ? 'html'
-                    : path.slug === 'dbms'
-                    ? 'sql'
-                    : path.slug === 'java'
-                    ? 'java'
-                    : 'python')
-                }
+                language={language}
               />
             </div>
 

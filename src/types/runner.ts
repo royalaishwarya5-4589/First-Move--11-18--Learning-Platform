@@ -32,3 +32,24 @@ export interface ValidationResult {
   executionTimeMs: number;
   error?: string;
 }
+
+export type SupportedRunnerLanguage =
+  | 'python'
+  | 'javascript'
+  | 'typescript'
+  | 'html'
+  | 'css'
+  | 'sql'
+  | 'java'
+  | 'bash'
+  | 'generic';
+
+export interface RunnerEngineInfo {
+  language: SupportedRunnerLanguage;
+  name: string;
+  version: string;
+  icon: string;
+  ready: boolean;
+  description: string;
+}
+

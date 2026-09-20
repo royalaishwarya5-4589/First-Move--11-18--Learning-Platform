@@ -288,18 +288,27 @@ export function ConsolePanel({ logs, validationResult, onClearLogs, isRunning }:
                     {!res.isHidden && (
                       <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
                         {res.expectedOutput !== undefined && (
-                          <div>
-                            <strong>Expected:</strong> <code>{res.expectedOutput}</code>
+                          <div style={{ marginTop: '0.2rem' }}>
+                            <strong style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Expected:</strong>
+                            <pre style={{ margin: '0.25rem 0', padding: '0.35rem 0.6rem', backgroundColor: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', overflowX: 'auto', whiteSpace: 'pre-wrap', fontFamily: "'Fira Code', monospace" }}>
+                              {res.expectedOutput}
+                            </pre>
                           </div>
                         )}
                         {res.actualOutput !== undefined && (
-                          <div>
-                            <strong>Actual:</strong> <code>{res.actualOutput}</code>
+                          <div style={{ marginTop: '0.2rem' }}>
+                            <strong style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Actual:</strong>
+                            <pre style={{ margin: '0.25rem 0', padding: '0.35rem 0.6rem', backgroundColor: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', overflowX: 'auto', whiteSpace: 'pre-wrap', fontFamily: "'Fira Code', monospace" }}>
+                              {res.actualOutput}
+                            </pre>
                           </div>
                         )}
                         {res.error && (
-                          <div style={{ color: '#ef4444' }}>
-                            <strong>Error:</strong> <code>{res.error}</code>
+                          <div style={{ marginTop: '0.2rem', color: '#ef4444' }}>
+                            <strong style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Error:</strong>
+                            <pre style={{ margin: '0.25rem 0', padding: '0.35rem 0.6rem', backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.2)', borderRadius: 'var(--radius-sm)', overflowX: 'auto', whiteSpace: 'pre-wrap', color: '#ef4444', fontFamily: "'Fira Code', monospace" }}>
+                              {res.error}
+                            </pre>
                           </div>
                         )}
                       </div>

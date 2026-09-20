@@ -4,6 +4,7 @@ import { runStage13ProductionHardeningTests } from './stage13_production_contrac
 import { runStage15CourseContentContractTests } from './stage15_course_content_contracts';
 import { runStage16LearnerQAContractTests } from './stage16_learner_qa_contracts';
 import { runStage16_5RealWorldHttpQATests } from './stage16_5_realworld_http_qa';
+import { runStage19MultiLanguageRunnerSuite } from './stage19_multi_language_runner';
 
 async function main() {
   console.log('--------------------------------------------------');
@@ -16,6 +17,7 @@ async function main() {
   await runStage15CourseContentContractTests();
   await runStage16LearnerQAContractTests();
   await runStage16_5RealWorldHttpQATests();
+  await runStage19MultiLanguageRunnerSuite();
 
   console.log('--------------------------------------------------');
   console.log('ALL CONTRACT SUITES PASSED SUCCESSFULLY!');
